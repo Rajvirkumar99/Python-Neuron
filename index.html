@@ -24,7 +24,7 @@
                 <i class="bi bi-cart"></i>
               </div>
               <div class="ps-3">
-                <h6>₹ {{ summary }} </h6>
+                <h6>₹ {{Empty }} </h6>
                 <span class="text-success small pt-1 fw-bold">12%</span>
                 <span class="text-muted small pt-2 ps-1">increase</span>
               </div>
@@ -62,14 +62,15 @@
       <div class="col-xxl-4 col-md-6">
         <div class="card info-card sales-card">
            <div class="card-body">
-            <h5 class="card-title">Ministry Of Defense Civil <span>| ₹ In Crores</span></h5>
+            <h5 class="card-title">Acievement <span></span></h5>
+          
             
             <div class="d-flex align-items-center">
               <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
                 <i class="bi bi-cart"></i>
               </div>
               <div class="ps-3">
-                <h6>₹ {{ summary }} </h6>
+                <h6>₹ {{  rrrr  }} </h6>
                 <span class="text-success small pt-1 fw-bold">12%</span>
                 <span class="text-muted small pt-2 ps-1">increase</span>
               </div>
@@ -88,7 +89,7 @@
         <div class="col-lg-12">
           <div class="row">
 
-            <!-- Sales Card -->
+        <!-- Ministry Of Defense Civil -->
             <div class="col-xxl-3 col-md-6">
               <div class="card info-card sales-card">
 
@@ -106,16 +107,14 @@
                 </div>
 
                 <div class="card-body">
-                  <h5 class="card-title">Ministry Of Defense Civil <span>| Today</span></h5>
-                  
+                  <h5 class="card-title">Budget <span>| Today</span></h5>
                   <div class="d-flex align-items-center">
                     <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
                       <i class="bi bi-cart"></i>
                     </div>
                     <div class="ps-3">
-                      <h6>₹ {{ grant_level_budget }} </h6>
-                      
-                      <!-- <h6>₹ {{filtered_data }}</h6> Dynamic Value Displayed Here -->
+                       <p style="color: #012970;">Ministry Of Defense Civil</p>
+                      <h6>₹ {{ mod_civil_bud }} </h6>
                       <span class="text-success small pt-1 fw-bold">12%</span>
                       <span class="text-muted small pt-2 ps-1">increase</span>
                     </div>
@@ -123,9 +122,10 @@
                 </div>
 
               </div>
-            </div><!-- End Sales Card -->
+            </div>
+          <!-- Ministry Of Defense Civil -->
 
-            <!-- Revenue Card -->
+          <!-- Defence Service Revenue (DSR) Budget -->
             <div class="col-xxl-3 col-md-6">
               <div class="card info-card revenue-card">
 
@@ -143,14 +143,15 @@
                 </div>
 
                 <div class="card-body">
-                  <h5 class="card-title">Revenue <span>| This Month</span></h5>
+                  <h5 class="card-title">Budget <span>| This Month</span></h5>
 
                   <div class="d-flex align-items-center">
                     <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
                       <i class="bi bi-currency-dollar"></i>
                     </div>
                     <div class="ps-3">
-                      <h6>$3,264</h6>
+                      <p style="color: #012970;">Defence Service Revenue (DSR)</p>
+                      <h6>{{Defence_service_revenue_bud}}</h6>
                       <span class="text-success small pt-1 fw-bold">8%</span> <span class="text-muted small pt-2 ps-1">increase</span>
 
                     </div>
@@ -158,9 +159,10 @@
                 </div>
 
               </div>
-            </div><!-- End Revenue Card -->
+            </div>
+      <!-- Defence Service Revenue (DSR) Budget -->
 
-            <!-- Customers Card -->
+         <!-- Capital Outlay Budget-->
             <div class="col-xxl-3 col-xl-12">
 
               <div class="card info-card customers-card">
@@ -179,14 +181,15 @@
                 </div>
 
                 <div class="card-body">
-                  <h5 class="card-title">Customers <span>| This Year</span></h5>
+                  <h5 class="card-title">Budget <span>| This Year</span></h5>
 
                   <div class="d-flex align-items-center">
                     <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
                       <i class="bi bi-people"></i>
                     </div>
                     <div class="ps-3">
-                      <h6>1244</h6>
+                      <p style="color: #012970;">Capital Outlay</p>
+                      <h6>{{capital_Outlay_bud}}</h6>
                       <span class="text-danger small pt-1 fw-bold">12%</span> <span class="text-muted small pt-2 ps-1">decrease</span>
 
                     </div>
@@ -195,9 +198,10 @@
                 </div>
               </div>
 
-            </div><!-- End Customers Card -->
+            </div>
+         <!-- Capital Outlay Budget-->
 
-           <!-- Sales Card    RAjvir -->
+           <!-- Budegt Defence Pensions -->
            <div class="col-xxl-3 col-md-6">
             <div class="card info-card sales-card">
 
@@ -215,14 +219,16 @@
               </div>
 
               <div class="card-body">
-                <h5 class="card-title">Rajvir <span>| Today</span></h5>
+                <h5 class="card-title">Budget <span>| Today</span></h5>
 
                 <div class="d-flex align-items-center">
                   <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
                     <i class="bi bi-cart"></i>
                   </div>
                   <div class="ps-3">
-                    <h6>145</h6>
+                    <p style="color: #012970;">Defenece Pension</p>
+                    <h6>{{defence_pensions_bud}}</h6>
+
                     <span class="text-success small pt-1 fw-bold">12%</span> <span class="text-muted small pt-2 ps-1">increase</span>
 
                   </div>
@@ -230,11 +236,18 @@
               </div>
 
             </div>
-          </div><!-- End Sales Card -->
+          </div>
+        <!-- Budegt Defence Pensions -->
 
+
+
+
+
+<!-- Below cards showing the Expenditure of grant no-19 -->
          
           <div class="col-lg-12">
             <div class="row">
+            <!-- mod_civil Card  expenditure-->
 
               <div class="col-xxl-3 col-md-6">
                 <div class="card info-card sales-card">
@@ -269,9 +282,10 @@
                   </div>
   
                 </div>
-              </div><!-- End Sales Card -->
+              </div>
+              <!-- mod_civil Card  expenditure-->
   
-              <!-- Revenue Card -->
+              <!-- Defence Service Revenue (DSR) -->
               <div class="col-xxl-3 col-md-6">
                 <div class="card info-card revenue-card">
   
@@ -304,9 +318,10 @@
                   </div>
   
                 </div>
-              </div><!-- End Revenue Card -->
+              </div>
+              <!-- Defence Service Revenue (DSR) -->
   
-              <!-- Customers Card -->
+              <!-- Captial outlay  Card -->
               <div class="col-xxl-3 col-xl-12">
   
                 <div class="card info-card customers-card">
@@ -325,7 +340,7 @@
                   </div>
   
                   <div class="card-body">
-                    <h5 class="card-title">Capital Outlay <span>| Grant-21 </span></h5>
+                    <h5 class="card-title">Expenditure <span>| Grant-21 </span></h5>
                     <p> Capital Outlay</p>
                     <div class="d-flex align-items-center">
                       <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
@@ -341,9 +356,9 @@
                   </div>
                 </div>
   
-              </div><!-- End Customers Card -->
+              </div><!-- Captial outlay  Card -->
   
-             <!-- Sales Card    RAjvir -->
+             <!-- Defence Pension  -->
              <div class="col-xxl-3 col-md-6">
               <div class="card info-card sales-card">
   
