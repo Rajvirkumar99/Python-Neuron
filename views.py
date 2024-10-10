@@ -3,7 +3,6 @@ from django.shortcuts import render
 from django.db import connection
 from .models import MasterAll,BudgetData
 
-
 # Create your views here.
 
 
@@ -55,20 +54,26 @@ def base(request):
 # views.py
 from django.shortcuts import render
 from .models import MasterAll  # Import your models if not already imported
-from .bud_exp_calcul import calculate_budget_summary, calculate_sum_for_grant,budget_ongrantlevel
+from  .bud_exp_calcul import calculate_budget_summary, calculate_sum_for_grant,budget_ongrantlevel
 def index(request):
     # Use the imported function to get the budget summary
     budget_total_sum = calculate_budget_summary()
 
-     # Get the budget sum at the grant level using the raw SQL function
-    # grant_level_budget = budget_ongrantlevel()
+    # Calling the function and printing the result grantwisee budget
+    mod_civil_bud = budget_ongrantlevel([2014, 2037, 2052, 2059, 2075, 2216, 2852, 4047, 4059, 4070, 4216, 7615])
+    Defence_service_revenue_bud = budget_ongrantlevel([2076,2077, 2078,2079,2080])
+    capital_Outlay_bud = budget_ongrantlevel([4076])
+    defence_pensions_bud = budget_ongrantlevel([2071])
 
-    grant_level_budget =budget_ongrantlevel([2014, 2037, 2052, 2059, 2075, 2216, 2852, 4047, 4059, 4070, 4216, 7615])
+    defence_budget=mod_civil_bud+defence_pensions_bud+capital_Outlay_bud+defence_pensions_bud
+  
     # Use the imported function to calculate sums for specific grants
     mod_civil = calculate_sum_for_grant('c', 19)  # 'mod_civil' sum
     DSR = calculate_sum_for_grant('c', 20)        # 'Defence Service Revenue' sum
     cap_sum = calculate_sum_for_grant('c', 21)    # 'Capital Outlay' sum
     dps_sum = calculate_sum_for_grant('c', 22)    # 'Defence Pension Service' sum
+    
+    defenceexp=mod_civil+DSR+cap_sum+dps_sum
 
     # Create a single context dictionary with all values
     context = {
@@ -77,7 +82,12 @@ def index(request):
         'cap_sum': cap_sum,
         'dps_sum': dps_sum,
         'summary': budget_total_sum,
-        'grant_level_budget': grant_level_budget 
+        'mod_civil_bud': mod_civil_bud ,
+        'Defence_service_revenue_bud':Defence_service_revenue_bud,
+        'capital_Outlay_bud': capital_Outlay_bud,
+        'defence_pensions_bud':defence_pensions_bud,
+        'Total_Defence_Expenditure':defenceexp,
+        'Total_deefence_budget':defence_budget
     }
 
     return render(request, 'index.html', context)
@@ -117,7 +127,6 @@ def linechart(request):
    
 
     return render(request, 'charts-chartjs.html')
-
 
 
 
