@@ -2,6 +2,7 @@ from django.db.models import Sum
 from django.shortcuts import render
 from django.db import connection
 from .models import MasterAll,BudgetData
+from .chart import get_reports_chart_data
 
 # Create your views here.
 
@@ -12,49 +13,11 @@ def base(request):
     return render(request, 'base.html')
 
 
-# def index(request):
-#     # Calculate the sum for 'mod_civil'
-#     mod_civil_sum = MasterAll.objects.filter(RC1='c', grantno1=19).aggregate(sum_amt=Sum('AMT'))
-#     # Get data from BudgetData
-#     budget_summary = BudgetData.objects.aggregate(
-#         total_vbe=Sum('vbe'),
-#         total_cbe=Sum('cbe')
-#     )
-#     budget_total_sum = round((budget_summary['total_vbe'] + budget_summary['total_cbe']) / 10000000, 2) if budget_summary['total_vbe'] and budget_summary['total_cbe'] else 0
-
-   
-
-#     mod_civil = round(mod_civil_sum['sum_amt'] / 10000000, 2) if mod_civil_sum['sum_amt'] else 0
-
-#     # Calculate the sum for 'Defence Service Revenue' (DSR)
-#     dsr_sum = MasterAll.objects.filter(RC1='c', grantno1=20).aggregate(sum_amt=Sum('AMT'))
-#     DSR = round(dsr_sum['sum_amt'] / 10000000, 2) if dsr_sum['sum_amt'] else 0
-
-#     # Calculate the sum for 'Capital Outlay'
-#     capitaloutlay_sum = MasterAll.objects.filter(RC1='c', grantno1=21).aggregate(sum_amt=Sum('AMT'))
-#     cap_sum = round(capitaloutlay_sum['sum_amt'] / 10000000, 2) if capitaloutlay_sum['sum_amt'] else 0
-
-#     # Calculate the sum for 'Defence Pension Service'
-#     defence_pension_sum = MasterAll.objects.filter(RC1='c', grantno1=22).aggregate(sum_amt=Sum('AMT'))
-#     dps_sum = round(defence_pension_sum['sum_amt'] / 10000000, 2) if defence_pension_sum['sum_amt'] else 0
-
-#     # Create a single context dictionary with all values
-#     context = {
-          
-#         'mod_civil': mod_civil,
-#         'dsr': DSR,
-#         'cap_sum': cap_sum,
-#         'dps_sum': dps_sum,  
-#         'summary': budget_total_sum,
-#     }
-
-#     return render(request, 'index.html', context)
-
-
 # views.py
 from django.shortcuts import render
 from .models import MasterAll  # Import your models if not already imported
 from  .bud_exp_calcul import calculate_budget_summary, calculate_sum_for_grant,budget_ongrantlevel
+
 def index(request):
     # Use the imported function to get the budget summary
     budget_total_sum = calculate_budget_summary()
@@ -75,6 +38,13 @@ def index(request):
     
     defenceexp=mod_civil+DSR+cap_sum+dps_sum
 
+
+    # Get chart data for multiple grants
+    minorhd_desc_19, amt_19 = get_reports_chart_data(19)
+    minorhd_desc_20, amt_20 = get_reports_chart_data(20)
+    minorhd_desc_21, amt_21 = get_reports_chart_data(21)
+    minorhd_desc_22, amt_22 = get_reports_chart_data(22)
+
     # Create a single context dictionary with all values
     context = {
         'mod_civil': mod_civil,
@@ -87,7 +57,16 @@ def index(request):
         'capital_Outlay_bud': capital_Outlay_bud,
         'defence_pensions_bud':defence_pensions_bud,
         'Total_Defence_Expenditure':defenceexp,
-        'Total_deefence_budget':defence_budget
+        'Total_deefence_budget':defence_budget,
+        # Chart data for multiple grants
+        'minorhd_desc_19': minorhd_desc_19,
+        'amt_19': amt_19,
+        'minorhd_desc_20': minorhd_desc_20,
+        'amt_20': amt_20,
+        'minorhd_desc_21': minorhd_desc_21,
+        'amt_21': amt_21,
+        'minorhd_desc_22': minorhd_desc_22,
+        'amt_22': amt_22
     }
 
     return render(request, 'index.html', context)
@@ -95,13 +74,8 @@ def index(request):
 
 
 
+#----------------------------------------------------------------
 
-
-
-
-
-from django.db.models import Sum
-from .models import MasterAll
 
 def extract_data_view(request):
     # Calculate the sum for `mod_civil` based on filters
