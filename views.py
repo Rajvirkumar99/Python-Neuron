@@ -66,7 +66,10 @@ def index(request):
         'minorhd_desc_21': minorhd_desc_21,
         'amt_21': amt_21,
         'minorhd_desc_22': minorhd_desc_22,
-        'amt_22': amt_22
+        'amt_22': amt_22,
+        'total_expenditure': total_expenditure,  # Pass total expenditure
+        'expenditure_percentage': expenditure_percentage  # Pass expenditure percentage
+
     }
 
     return render(request, 'index.html', context)
