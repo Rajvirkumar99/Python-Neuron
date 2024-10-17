@@ -1,409 +1,465 @@
-{% extends 'base.html' %}
-{% load static %}
-{% block content %}
+{% extends 'base.html' %} {% load static %} {% block content %}
 
 <!-- Change -->
 
-    <div class="Dashboard">
-      <h4>CGDA Mandate</h4>
+<div class="Dashboard">
+  <h4>CGDA Mandate</h4>
 
-      <p>The Defence Accounts Department (DAD), under the Ministry of Defence and led by the Controller General of Defence Accounts, oversees audit, financial advice, payment, and accounting for the Armed Forces. This includes managing pay, allowances, pensions, and auditing cash and store accounts for organizations like the Army, Navy, Air Force, DRDO, and Ordnance Factories. DAD has 1110 offices nationwide, ensuring prompt services through a network of Controllers, Area Accounts Offices, and Local Audit Offices. It also provides training through various institutes and is responsible for preparing Annual Consolidated Accounts and rendering the Annual Audit Certificate for Defence Services.</p>
-       <span><P>For more information <a href="https://cgda.nic.in/index.php?page=abtdad">Click hear</a></P></span>
-    </div>
+  <p>
+    The Defence Accounts Department (DAD), under the Ministry of Defence and led
+    by the Controller General of Defence Accounts, oversees audit, financial
+    advice, payment, and accounting for the Armed Forces. This includes managing
+    pay, allowances, pensions, and auditing cash and store accounts for
+    organizations like the Army, Navy, Air Force, DRDO, and Ordnance Factories.
+    DAD has 1110 offices nationwide, ensuring prompt services through a network
+    of Controllers, Area Accounts Offices, and Local Audit Offices. It also
+    provides training through various institutes and is responsible for
+    preparing Annual Consolidated Accounts and rendering the Annual Audit
+    Certificate for Defence Services.
+  </p>
+  <span
+    ><p>
+      For more information
+      <a href="https://cgda.nic.in/index.php?page=abtdad">Click hear</a>
+    </p></span
+  >
+</div>
 
-    <div class="cgda-glance text-center mb-3 py-2" style="background-color: #3C41A1; color: white; box-shadow: 0px 4px 2px -2px gray;">
-      <h3>CGDA at a Glance</h3>
-  </div>
-  
+<div
+  class="cgda-glance text-center mb-3 py-2"
+  style="
+    background-color: #3c41a1;
+    color: white;
+    box-shadow: 0px 4px 2px -2px gray;
+  "
+>
+  <h3>CGDA at a Glance</h3>
+</div>
 
 <!-- # budegte section  -->
+ <!-- all defennce Budget  -->
 <section class="section dashboard">
-    <div class="row">
+  <div class="row">
+    <div class="col-xxl-4 col-md-6">
+      <div class="card info-card revenue-card">
+        <div class="card-body">
+          <h5 class="card-title">Defence Budget <span>| ₹ In Crores </span></h5>
 
-      <div class="col-xxl-4 col-md-6">
-        <div class="card info-card sales-card">
-           <div class="card-body">
-            <h5 class="card-title"> Defence Budget <span>| ₹ In Crores </span></h5>
-            
-            <div class="d-flex align-items-center">
-              <!-- <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                <i class="bi bi-cart"></i>
-              </div> -->
-              <div class="ps-3">
-                <h6>₹ {{Total_deefence_budget }} </h6>
-                <span class="text-success small pt-1 fw-bold">12%</span>
-                <span class="text-muted small pt-2 ps-1">increase</span>
-              </div>
+          <div class="d-flex align-items-center">
+            <div
+              class="card-icon rounded-circle d-flex align-items-center justify-content-center"
+            >
+              <i class="bi bi-bank"></i>
+            </div>
+            <div class="ps-3">
+              <h6>₹ {{Total_deefence_budget }}</h6>
             </div>
           </div>
-
         </div>
       </div>
-
-
-
-      <div class="col-xxl-4 col-md-6">
-        <div class="card info-card sales-card">
-           <div class="card-body">
-            <h5 class="card-title">Expenditure <span>| ₹ In Crores </span></h5>
-            
-            <div class="d-flex align-items-center">
-              <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                <i class="bi bi-cart"></i>
-              </div>
-              <div class="ps-3">
-                <h6>₹ {{ Total_Defence_Expenditure }} </h6>
-                <span class="text-success small pt-1 fw-bold">12%</span>
-                <span class="text-muted small pt-2 ps-1">increase</span>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-
-
-
-      <div class="col-xxl-4 col-md-6">
-        <div class="card info-card sales-card">
-           <div class="card-body">
-            <h5 class="card-title">Acievement <span></span></h5>
-          
-            
-            <div class="d-flex align-items-center">
-              <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                <i class="bi bi-cart"></i>
-              </div>
-              <div class="ps-3">
-                <h6>₹ {{  rrrr  }} </h6>
-                <span class="text-success small pt-1 fw-bold">12%</span>
-                <span class="text-muted small pt-2 ps-1">increase</span>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-
     </div>
+ <!-- all defennce Expenditure  -->
+    <div class="col-xxl-4 col-md-6">
+      <div class="card info-card sales-card">
+        <div class="card-body">
+          <h5 class="card-title">Expenditure <span>| ₹ In Crores </span></h5>
+
+          <div class="d-flex align-items-center">
+            <div
+            class="card-icon rounded-circle d-flex align-items-center justify-content-center"
+            style="background: #ffecdf"
+          >
+            <i
+              class="bi bi-currency-rupee"
+              style="color: #ff771d"
+            ></i>
+          </div>
+            <div class="ps-3">
+              <h6>₹ {{ Total_Defence_Expenditure }}</h6>
+              <!-- <span class="text-success small pt-1 fw-bold">12%</span>
+              <span class="text-muted small pt-2 ps-1">increase</span> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+ <!-- all defennce Percentage  -->
+    <div class="col-xxl-4 col-md-6">
+      <div class="card info-card sales-card">
+        <div class="card-body">
+          <h5 class="card-title">Acievement <span></span></h5>
+
+          <div class="d-flex align-items-center">
+            <div
+            class="card-icon rounded-circle d-flex align-items-center justify-content-center"
+            style="background: #ffecdf"
+          >
+            <i class="bi bi-percent" style="color: #ff771d"></i>
+           
+          </div>
+            <div class="ps-3">
+              <h6> {{ expenditure_percentage }} %</h6>
+              <!-- <span class="text-success small pt-1 fw-bold">12%</span>
+              <span class="text-muted small pt-2 ps-1">increase</span> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
-    <section class="section dashboard">
-      <div class="row">  
-        <!-- Left side columns -->
+
+<!-- # Grant wise budegte section  -->
+<section class="section dashboard">
+  <div class="row">
+    <!-- Left side columns -->
+    <div class="col-lg-12">
+      <div class="row">
+        <!-- Ministry Of Defense Civil -->
+        <div class="col-xxl-3 col-md-6">
+          <div class="card info-card revenue-card">
+            <div class="filter">
+              <a class="icon" href="#" data-bs-toggle="dropdown"
+                ><i class="bi bi-three-dots"></i
+              ></a>
+              <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                <li class="dropdown-header text-start">
+                  <h6>Filter</h6>
+                </li>
+
+                <li><a class="dropdown-item" href="#">Today</a></li>
+                <li><a class="dropdown-item" href="#">This Month</a></li>
+                <li><a class="dropdown-item" href="#">This Year</a></li>
+              </ul>
+            </div>
+
+            <div class="card-body">
+              <h5 class="card-title">Budget <span>| Today</span></h5>
+              <div class="d-flex align-items-center">
+                <div
+                  class="card-icon rounded-circle d-flex align-items-center justify-content-center"
+                >
+                  <i class="bi bi-bank"></i>
+                </div>
+                <div class="ps-3">
+                  <p style="color: #012970">Ministry Of Defense Civil</p>
+                  <h6>₹ {{ mod_civil_bud }}</h6>
+
+                  <!-- <span class="text-success small pt-1 fw-bold">12%</span>
+                  <span class="text-muted small pt-2 ps-1">increase</span> -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Ministry Of Defense Civil -->
+
+        <!-- Defence Service Revenue (DSR) Budget -->
+        <div class="col-xxl-3 col-md-6">
+          <div class="card info-card revenue-card">
+            <div class="filter">
+              <a class="icon" href="#" data-bs-toggle="dropdown"
+                ><i class="bi bi-three-dots"></i
+              ></a>
+              <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                <li class="dropdown-header text-start">
+                  <h6>Filter</h6>
+                </li>
+
+                <li><a class="dropdown-item" href="#">Today</a></li>
+                <li><a class="dropdown-item" href="#">This Month</a></li>
+                <li><a class="dropdown-item" href="#">This Year</a></li>
+              </ul>
+            </div>
+
+            <div class="card-body">
+              <h5 class="card-title">Budget <span>| This Month</span></h5>
+
+              <div class="d-flex align-items-center">
+                <div
+                  class="card-icon rounded-circle d-flex align-items-center justify-content-center"
+                >
+                  <i class="bi bi-bank"></i>
+                </div>
+                <div class="ps-3">
+                  <p style="color: #012970">Defence Service Revenue (DSR)</p>
+                  <h6>₹ {{Defence_service_revenue_bud}}</h6>
+                  <!-- <span class="text-success small pt-1 fw-bold">8%</span>
+                  <span class="text-muted small pt-2 ps-1">increase</span> -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Defence Service Revenue (DSR) Budget -->
+
+        <!-- Capital Outlay Budget-->
+        <div class="col-xxl-3 col-xl-12">
+          <div class="card info-card revenue-card">
+            <div class="filter">
+              <a class="icon" href="#" data-bs-toggle="dropdown"
+                ><i class="bi bi-three-dots"></i
+              ></a>
+              <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                <li class="dropdown-header text-start">
+                  <h6>Filter</h6>
+                </li>
+
+                <li><a class="dropdown-item" href="#">Today</a></li>
+                <li><a class="dropdown-item" href="#">This Month</a></li>
+                <li><a class="dropdown-item" href="#">This Year</a></li>
+              </ul>
+            </div>
+
+            <div class="card-body">
+              <h5 class="card-title">Budget <span>| This Year</span></h5>
+
+              <div class="d-flex align-items-center">
+                <div
+                  class="card-icon rounded-circle d-flex align-items-center justify-content-center"
+                >
+                  <i class="bi bi-bank"></i>
+                </div>
+                <div class="ps-3">
+                  <p style="color: #012970">Capital Outlay</p>
+                  <h6>₹ {{capital_Outlay_bud}}</h6>
+                  <!-- <span class="text-danger small pt-1 fw-bold">12%</span>
+                  <span class="text-muted small pt-2 ps-1">decrease</span> -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Capital Outlay Budget-->
+
+        <!-- Budegt Defence Pensions -->
+        <div class="col-xxl-3 col-md-6">
+          <div class="card info-card revenue-card">
+            <div class="filter">
+              <a class="icon" href="#" data-bs-toggle="dropdown"
+                ><i class="bi bi-three-dots"></i
+              ></a>
+              <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                <li class="dropdown-header text-start">
+                  <h6>Filter</h6>
+                </li>
+
+                <li><a class="dropdown-item" href="#">Today</a></li>
+                <li><a class="dropdown-item" href="#">This Month</a></li>
+                <li><a class="dropdown-item" href="#">This Year</a></li>
+              </ul>
+            </div>
+
+            <div class="card-body">
+              <h5 class="card-title">Budget <span>| Today</span></h5>
+
+              <div class="d-flex align-items-center">
+                <div
+                  class="card-icon rounded-circle d-flex align-items-center justify-content-center"
+                >
+                  <i class="bi bi-bank"></i>
+                </div>
+                <div class="ps-3">
+                  <p style="color: #012970">Defenece Pension</p>
+                  <h6>₹ {{defence_pensions_bud}}</h6>
+
+                  <!-- <span class="text-success small pt-1 fw-bold">12%</span>
+                  <span class="text-muted small pt-2 ps-1">increase</span> -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+
+
+
+        <!-- Below cards showing the Expenditure of grant no-19 -->
+
         <div class="col-lg-12">
           <div class="row">
+            <!-- mod_civil Card  expenditure-->
 
-        <!-- Ministry Of Defense Civil -->
             <div class="col-xxl-3 col-md-6">
               <div class="card info-card sales-card">
-
                 <div class="filter">
-                  <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+                  <a class="icon" href="#" data-bs-toggle="dropdown">
+                    <i class="bi bi-three-dots"></i>
+                  </a>
                   <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
                     <li class="dropdown-header text-start">
                       <h6>Filter</h6>
                     </li>
-
                     <li><a class="dropdown-item" href="#">Today</a></li>
                     <li><a class="dropdown-item" href="#">This Month</a></li>
                     <li><a class="dropdown-item" href="#">This Year</a></li>
                   </ul>
                 </div>
-
+            
                 <div class="card-body">
-                  <h5 class="card-title">Budget <span>| Today</span></h5>
-                  <div class="d-flex align-items-center">
-                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                      <i class="bi bi-cart"></i>
+                  <h5 class="card-title">
+                    Expenditure <span>| Grant-19 </span>
+                  </h5>   
+                  <div class="d-flex align-items-center justify-content-between">
+                    <div
+                      class="card-icon rounded-circle d-flex align-items-center justify-content-center"
+                      style="background: #ffecdf"
+                    >
+                      <i
+                        class="bi bi-currency-rupee"
+                        style="color: #ff771d"
+                      ></i>
                     </div>
                     <div class="ps-3">
-                       <p style="color: #012970;">Ministry Of Defense Civil</p>
-                      <h6>₹ {{ mod_civil_bud }} </h6>
-                      <span class="text-success small pt-1 fw-bold">12%</span>
-                      <span class="text-muted small pt-2 ps-1">increase</span>
+                      <p style="color: #012970">Ministry Of Defense Civil</p>
+                      <h6>{{mod_civil}}</h6>
+                    </div>
+                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                      <span class="text-success small pt-1 fw-bold" style="color: #ff771d;">12%</span>
                     </div>
                   </div>
                 </div>
-
               </div>
             </div>
-          <!-- Ministry Of Defense Civil -->
+            
+            <!-- mod_civil Card  expenditure-->
 
-          <!-- Defence Service Revenue (DSR) Budget -->
-            <div class="col-xxl-3 col-md-6">
-              <div class="card info-card revenue-card">
-
-                <div class="filter">
-                  <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                  <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                    <li class="dropdown-header text-start">
-                      <h6>Filter</h6>
-                    </li>
-
-                    <li><a class="dropdown-item" href="#">Today</a></li>
-                    <li><a class="dropdown-item" href="#">This Month</a></li>
-                    <li><a class="dropdown-item" href="#">This Year</a></li>
-                  </ul>
-                </div>
-
-                <div class="card-body">
-                  <h5 class="card-title">Budget <span>| This Month</span></h5>
-
-                  <div class="d-flex align-items-center">
-                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                      <i class="bi bi-currency-dollar"></i>
-                    </div>
-                    <div class="ps-3">
-                      <p style="color: #012970;">Defence Service Revenue (DSR)</p>
-                      <h6>{{Defence_service_revenue_bud}}</h6>
-                      <span class="text-success small pt-1 fw-bold">8%</span> <span class="text-muted small pt-2 ps-1">increase</span>
-
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-            </div>
-      <!-- Defence Service Revenue (DSR) Budget -->
-
-         <!-- Capital Outlay Budget-->
-            <div class="col-xxl-3 col-xl-12">
-
-              <div class="card info-card customers-card">
-
-                <div class="filter">
-                  <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                  <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                    <li class="dropdown-header text-start">
-                      <h6>Filter</h6>
-                    </li>
-
-                    <li><a class="dropdown-item" href="#">Today</a></li>
-                    <li><a class="dropdown-item" href="#">This Month</a></li>
-                    <li><a class="dropdown-item" href="#">This Year</a></li>
-                  </ul>
-                </div>
-
-                <div class="card-body">
-                  <h5 class="card-title">Budget <span>| This Year</span></h5>
-
-                  <div class="d-flex align-items-center">
-                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                      <i class="bi bi-people"></i>
-                    </div>
-                    <div class="ps-3">
-                      <p style="color: #012970;">Capital Outlay</p>
-                      <h6>{{capital_Outlay_bud}}</h6>
-                      <span class="text-danger small pt-1 fw-bold">12%</span> <span class="text-muted small pt-2 ps-1">decrease</span>
-
-                    </div>
-                  </div>
-
-                </div>
-              </div>
-
-            </div>
-         <!-- Capital Outlay Budget-->
-
-           <!-- Budegt Defence Pensions -->
+            <!-- Defence Service Revenue (DSR) -->
            <div class="col-xxl-3 col-md-6">
-            <div class="card info-card sales-card">
-
-              <div class="filter">
-                <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                  <li class="dropdown-header text-start">
-                    <h6>Filter</h6>
-                  </li>
-
-                  <li><a class="dropdown-item" href="#">Today</a></li>
-                  <li><a class="dropdown-item" href="#">This Month</a></li>
-                  <li><a class="dropdown-item" href="#">This Year</a></li>
-                </ul>
-              </div>
-
-              <div class="card-body">
-                <h5 class="card-title">Budget <span>| Today</span></h5>
-
-                <div class="d-flex align-items-center">
-                  <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                    <i class="bi bi-cart"></i>
-                  </div>
-                  <div class="ps-3">
-                    <p style="color: #012970;">Defenece Pension</p>
-                    <h6>{{defence_pensions_bud}}</h6>
-
-                    <span class="text-success small pt-1 fw-bold">12%</span> <span class="text-muted small pt-2 ps-1">increase</span>
-
+              <div class="card info-card sales-card">
+                <div class="filter">
+                  <a class="icon" href="#" data-bs-toggle="dropdown">
+                    <i class="bi bi-three-dots"></i>
+                  </a>
+                  <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                    <li class="dropdown-header text-start">
+                      <h6>Filter</h6>
+                    </li>
+                    <li><a class="dropdown-item" href="#">Today</a></li>
+                    <li><a class="dropdown-item" href="#">This Month</a></li>
+                    <li><a class="dropdown-item" href="#">This Year</a></li>
+                  </ul>
+                </div>
+            
+                <div class="card-body">
+                  <h5 class="card-title">
+                    Expenditure <span>| Grant-20</span>
+                  </h5>
+                  <div class="d-flex align-items-center justify-content-between">
+                    <div
+                      class="card-icon rounded-circle d-flex align-items-center justify-content-center"
+                      style="background: #ffecdf"
+                    >
+                      <i
+                        class="bi bi-currency-rupee"
+                        style="color: #ff771d"
+                      ></i>
+                    </div>
+                    <div class="ps-3">
+                      <p style="color: #012970">(DSR)</p>
+                      <h6>{{dsr}}</h6>
+                    </div>
+                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                      <span class="text-success small pt-1 fw-bold" style="color: #ff771d;">12%</span>
+                    </div>
                   </div>
                 </div>
               </div>
+            </div>       
+           <!-- Defence Service Revenue (DSR) -->
 
-            </div>
-          </div>
-        <!-- Budegt Defence Pensions -->
+            <!-- Captial outlay  Card -->
+            <div class="col-xxl-3 col-md-6">
+              <div class="card info-card sales-card">
+                <div class="filter">
+                  <a class="icon" href="#" data-bs-toggle="dropdown">
+                    <i class="bi bi-three-dots"></i>
+                  </a>
+                  <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                    <li class="dropdown-header text-start">
+                      <h6>Filter</h6>
+                    </li>
+                    <li><a class="dropdown-item" href="#">Today</a></li>
+                    <li><a class="dropdown-item" href="#">This Month</a></li>
+                    <li><a class="dropdown-item" href="#">This Year</a></li>
+                  </ul>
+                </div>
+            
+                <div class="card-body">
+                  <h5 class="card-title">
+                    Expenditure <span>| Grant-21 </span>
+                  </h5>
+                  <div class="d-flex align-items-center justify-content-between">
+                    <div
+                      class="card-icon rounded-circle d-flex align-items-center justify-content-center"
+                      style="background: #ffecdf"
+                    >
+                      <i
+                        class="bi bi-currency-rupee"
+                        style="color: #ff771d"
+                      ></i>
+                    </div>
+                    <div class="ps-3">
+                      <p style="color: #012970">Capital Outlay</p>
+                      <h6>{{cap_sum}}</h6>
+                    </div>
+                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                      <span class="text-success small pt-1 fw-bold" style="color: #ff771d;">12%</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div> 
+           
+            <!-- Captial outlay  Card -->
 
+            <!-- Defence Pension  -->
+            <div class="col-xxl-3 col-md-6">
+              <div class="card info-card sales-card">
+                <div class="filter">
+                  <a class="icon" href="#" data-bs-toggle="dropdown">
+                    <i class="bi bi-three-dots"></i>
+                  </a>
+                  <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                    <li class="dropdown-header text-start">
+                      <h6>Filter</h6>
+                    </li>
+                    <li><a class="dropdown-item" href="#">Today</a></li>
+                    <li><a class="dropdown-item" href="#">This Month</a></li>
+                    <li><a class="dropdown-item" href="#">This Year</a></li>
+                  </ul>
+                </div>
+            
+                <div class="card-body">
+                  <h5 class="card-title">
+                    Expenditure <span>| Grant-22</span>
+                  </h5>
+                  <div class="d-flex align-items-center justify-content-between">
+                    <div
+                      class="card-icon rounded-circle d-flex align-items-center justify-content-center"
+                      style="background: #ffecdf"
+                    >
+                      <i
+                        class="bi bi-currency-rupee"
+                        style="color: #ff771d"
+                      ></i>
+                    </div>
+                    <div class="ps-3">
+                      <p style="color: #012970">Defence Pension</p>
+                      <h6>{{dps_sum}}</h6>
+                    </div>
+                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                      <span class="text-success small pt-1 fw-bold" style="color: #ff771d;">12%</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>  
 
+        <!-- End Sales Card  Rajvir -->
 
-
-
-<!-- Below cards showing the Expenditure of grant no-19 -->
-         
-<div class="col-lg-12">
-<div class="row">
-<!-- mod_civil Card  expenditure-->
-
-<div class="col-xxl-3 col-md-6">
-  <div class="card info-card sales-card">
-
-    <div class="filter">
-      <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-      <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-        <li class="dropdown-header text-start">
-          <h6>Filter</h6>
-        </li>
-
-        <li><a class="dropdown-item" href="#">Today</a></li>
-        <li><a class="dropdown-item" href="#">This Month</a></li>
-        <li><a class="dropdown-item" href="#">This Year</a></li>
-      </ul>
-    </div>
-
-    <div class="card-body">
-      <h5 class="card-title">Expenditure <span>| Grant-19 </span></h5>
-      <p style="color: #012970;">Ministry Of Defense Civil</p>
-
-      <div class="d-flex align-items-center">
-        <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-          <i class="bi bi-cart"></i>
-        </div>
-        <div class="ps-3">
-          <h6>₹ {{mod_civil}}</h6>
-          <span class="text-success small pt-1 fw-bold">12%</span> <span class="text-muted small pt-2 ps-1">increase</span>
-
-        </div>
-      </div>
-    </div>
-
-  </div>
-</div>
-              <!-- mod_civil Card  expenditure-->
-  
-              <!-- Defence Service Revenue (DSR) -->
-<div class="col-xxl-3 col-md-6">
-  <div class="card info-card revenue-card">
-
-    <div class="filter">
-      <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-      <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-        <li class="dropdown-header text-start">
-          <h6>Filter</h6>
-        </li>
-
-        <li><a class="dropdown-item" href="#">Today</a></li>
-        <li><a class="dropdown-item" href="#">This Month</a></li>
-        <li><a class="dropdown-item" href="#">This Year</a></li>
-      </ul>
-    </div>
-
-    <div class="card-body">
-      <h5 class="card-title">Expenditure <span>| Grant-20</span></h5>
-        <p> Defence Service Revenue (DSR)</p>
-      <div class="d-flex align-items-center">
-        <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-          <i class="bi bi-currency-dollar"></i>
-        </div>
-        <div class="ps-3">
-          <h6>₹ {{dsr}}</h6>
-          <span class="text-success small pt-1 fw-bold">8%</span> <span class="text-muted small pt-2 ps-1">increase</span>
-
-        </div>
-      </div>
-    </div>
-
-  </div>
-</div>
-              <!-- Defence Service Revenue (DSR) -->
-  
-<!-- Captial outlay  Card -->
-<div class="col-xxl-3 col-xl-12">
-
-<div class="card info-card customers-card">
-
-  <div class="filter">
-    <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-    <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-      <li class="dropdown-header text-start">
-        <h6>Filter</h6>
-      </li>
-
-      <li><a class="dropdown-item" href="#">Today</a></li>
-      <li><a class="dropdown-item" href="#">This Month</a></li>
-      <li><a class="dropdown-item" href="#">This Year</a></li>
-    </ul>
-  </div>
-
-  <div class="card-body">
-    <h5 class="card-title">Expenditure <span>| Grant-21 </span></h5>
-    <p> Capital Outlay</p>
-    <div class="d-flex align-items-center">
-      <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-        <i class="bi bi-people"></i>
-      </div>
-      <div class="ps-3">
-        <h6>₹ {{cap_sum}}</h6>
-        <span class="text-danger small pt-1 fw-bold">12%</span> <span class="text-muted small pt-2 ps-1">decrease</span>
-
-      </div>
-    </div>
-
-  </div>
-</div>
-
-</div><!-- Captial outlay  Card -->
-
-             <!-- Defence Pension  -->
-<div class="col-xxl-3 col-md-6">
-<div class="card info-card sales-card">
-
-  <div class="filter">
-    <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-    <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-      <li class="dropdown-header text-start">
-        <h6>Filter</h6>
-      </li>
-
-      <li><a class="dropdown-item" href="#">Today</a></li>
-      <li><a class="dropdown-item" href="#">This Month</a></li>
-      <li><a class="dropdown-item" href="#">This Year</a></li>
-    </ul>
-  </div>
-
-  <div class="card-body">
-    <h5 class="card-title">Expenditure<span>| Grant-22 </span></h5>
-      <p>Defence Pensions</p>
-    <div class="d-flex align-items-center">
-      <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-        <i class="bi bi-cart"></i>
-      </div>
-      <div class="ps-3">
-        <h6>{{dps_sum}}</h6>
-        <span class="text-success small pt-1 fw-bold">12%</span> <span class="text-muted small pt-2 ps-1">increase</span>
-
-      </div>
-    </div>
-  </div>
-
-</div>
-</div>
-</div>
-</div>
-
-  <!-- End Sales Card  Rajvir -->
-
-<!-- Reports  line chart comment  -->
-<!-- 
+        <!-- Reports  line chart comment  -->
+        <!-- 
 <div class="col-12">
   <div class="card">
 
@@ -486,313 +542,335 @@
 </div>
 -->
 
+        <!-- #-------------------- Dummy Bar chart for upcoming devlopment ------------------------------- -->
 
+        <!-- -------------------grant-19---------------------- -->
 
-<!-- #-------------------- Dummy Bar chart for upcoming devlopment ------------------------------- -->
- 
- <!-- -------------------grant-19---------------------- -->
-
-<div class="section">
-  <div class="row">
-      <div class="col-lg-6">
-          <div class="card">
-              <div class="card-body">
-                  <h5 class="card-title">"Ministry of Defence (Civil) Grant-19</h5>
+        <div class="section">
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">
+                    Ministry of Defence (Civil) Grant-19
+                  </h5>
 
                   <!-- Bar Chart 1 -->
-                <canvas id="barChart1" style="max-height: 800px;"></canvas>
-                <script>
-                  document.addEventListener("DOMContentLoaded", () => {
-                    new Chart(document.querySelector('#barChart1'), {
-                      type: 'bar',
-                      data: {
-                        labels: {{ minorhd_desc_19|safe }},
-                        datasets: [{
-                          label: 'Bar Chart 1',
-                          data: {{ amt_19|safe }},  <!-- Correct placement of amt_20 data -->
-                          backgroundColor: [
-                            'rgba(255, 99, 132, 0.2)',
-                            'rgba(255, 159, 64, 0.2)',
-                            'rgba(255, 205, 86, 0.2)',
-                            'rgba(75, 192, 192, 0.2)',
-                            'rgba(54, 162, 235, 0.2)',
-                            'rgba(153, 102, 255, 0.2)',
-                            'rgba(201, 203, 207, 0.2)'
-                          ],
-                          borderColor: [
-                            'rgb(255, 99, 132)',
-                            'rgb(255, 159, 64)',
-                            'rgb(255, 205, 86)',
-                            'rgb(75, 192, 192)',
-                            'rgb(54, 162, 235)',
-                            'rgb(153, 102, 255)',
-                            'rgb(201, 203, 207)'
-                          ],
-                          borderWidth: 1
-                        }]
-                      },
-                      options: {
-                        scales: {
-                          y: {
-                            beginAtZero: true
+                  <canvas id="barChart1" style="max-height: 800px"></canvas>
+                  <script>
+                    document.addEventListener("DOMContentLoaded", () => {
+                      new Chart(document.querySelector('#barChart1'), {
+                        type: 'bar',
+                        data: {
+                          labels: {{ minorhd_desc_19|safe }},
+                          datasets: [{
+                            label: 'Bar Chart 1',
+                            data: {{ amt_19|safe }},  <!-- Correct placement of amt_19 data -->
+                            backgroundColor: [
+                              'rgba(255, 99, 132, 0.2)',
+                              'rgba(255, 159, 64, 0.2)',
+                              'rgba(255, 205, 86, 0.2)',
+                              'rgba(75, 192, 192, 0.2)',
+                              'rgba(54, 162, 235, 0.2)',
+                              'rgba(153, 102, 255, 0.2)',
+                              'rgba(201, 203, 207, 0.2)'
+                            ],
+                            borderColor: [
+                              'rgb(255, 99, 132)',
+                              'rgb(255, 159, 64)',
+                              'rgb(255, 205, 86)',
+                              'rgb(75, 192, 192)',
+                              'rgb(54, 162, 235)',
+                              'rgb(153, 102, 255)',
+                              'rgb(201, 203, 207)'
+                            ],
+                            borderWidth: 1
+                          }]
+                        },
+                        options: {
+                          indexAxis: 'y',
+                          scales: {
+                            y: {
+                              beginAtZero: true
+                            }
                           }
                         }
-                      }
+                      });
                     });
-                  });
-                </script>
+                  </script>
                   <!-- End Bar Chart 1 -->
+                </div>
+              </div>
+            </div>
+            <!-- -------------------grant-20---------------------- -->
+            <div class="col-lg-6">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">
+                    Defence Services (Revenue) Grant-20
+                  </h5>
 
-        </div>
-     
+                  <!-- Bar Chart 2 -->
+                  <canvas id="barChart2" style="max-height: 800px"></canvas>
+                  <script>
+                    document.addEventListener("DOMContentLoaded", () => {
+                        new Chart(document.getElementById('barChart2'), {
+                            type: 'bar',
+                            data: {
+                                labels: {{ minorhd_desc_20|safe }},
+                                datasets: [{
+                                    label: 'Bar Chart 2',  // Correct label for this chart
+                                    data: {{ amt_20|safe }},
+                                    backgroundColor: [
+                                        'rgba(255, 99, 132, 0.2)',
+                                        'rgba(255, 159, 64, 0.2)',
+                                        'rgba(255, 205, 86, 0.2)',
+                                        'rgba(75, 192, 192, 0.2)',
+                                        'rgba(54, 162, 235, 0.2)',
+                                        'rgba(153, 102, 255, 0.2)',
+                                        'rgba(201, 203, 207, 0.2)'
+                                    ],
+                                    borderColor: [
+                                        'rgb(255, 99, 132)',
+                                        'rgb(255, 159, 64)',
+                                        'rgb(255, 205, 86)',
+                                        'rgb(75, 192, 192)',
+                                        'rgb(54, 162, 235)',
+                                        'rgb(153, 102, 255)',
+                                        'rgb(201, 203, 207)'
+                                    ],
+                                    borderWidth: 1
+                                }]
+                            },
+                            options: {
+                              indexAxis: 'y',
+                                scales: {
+                                    y: {
+                                        beginAtZero: true
+                                    }
+                                }
+                            }
+                        });
+                    });
+                  </script>
+                  <!-- End Bar Chart 2 -->
+                </div>
+              </div>
+            </div>
+        
+            <!-- -------------------grant-21---------------------- -->
 
-    </div>
-</div>
-<!-- -------------------grant-20---------------------- -->
-<div class="col-lg-6">
-  <div class="card">
-      <div class="card-body">
-          <h5 class="card-title">Defence Services (Revenue) Grant-20</h5>
+            <div class="col-lg-6">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">
+                    Capital Outlay on Defence Services Grant-21
+                  </h5>
 
-          <!-- Bar Chart 2 -->
-          <canvas id="barChart2" style="max-height: 800px;"></canvas>
-          <script>
-              document.addEventListener("DOMContentLoaded", () => {
-                  new Chart(document.getElementById('barChart2'), {
-                      type: 'bar',
-                      data: {
-                          labels: {{ minorhd_desc_20|safe }},
-                          datasets: [{
-                              label: 'Bar Chart 2',  // Correct label for this chart
-                              data: {{ amt_20|safe }},
-                              backgroundColor: [
-                                  'rgba(255, 99, 132, 0.2)',
-                                  'rgba(255, 159, 64, 0.2)',
-                                  'rgba(255, 205, 86, 0.2)',
-                                  'rgba(75, 192, 192, 0.2)',
-                                  'rgba(54, 162, 235, 0.2)',
-                                  'rgba(153, 102, 255, 0.2)',
-                                  'rgba(201, 203, 207, 0.2)'
-                              ],
-                              borderColor: [
-                                  'rgb(255, 99, 132)',
-                                  'rgb(255, 159, 64)',
-                                  'rgb(255, 205, 86)',
-                                  'rgb(75, 192, 192)',
-                                  'rgb(54, 162, 235)',
-                                  'rgb(153, 102, 255)',
-                                  'rgb(201, 203, 207)'
-                              ],
-                              borderWidth: 1
-                          }]
-                      },
-                      options: {
-                          scales: {
-                              y: {
-                                  beginAtZero: true
-                              }
-                          }
-                      }
-                  });
-              });
-          </script>
-          <!-- End Bar Chart 2 -->
+                  <!-- Bar Chart 2 -->
+                  <canvas id="barChart3" style="max-height: 800px"></canvas>
+                  <script>
+                    document.addEventListener("DOMContentLoaded", () => {
+                        new Chart(document.getElementById('barChart3'), {
+                            type: 'bar',
+                            data: {
+                                labels: {{ minorhd_desc_21|safe }},
+                                datasets: [{
+                                    label: 'Bar Chart 2',  // Correct label for this chart
+                                    data: {{ amt_21|safe }},
+                                    backgroundColor: [
+                                        'rgba(255, 99, 132, 0.2)',
+                                        'rgba(255, 159, 64, 0.2)',
+                                        'rgba(255, 205, 86, 0.2)',
+                                        'rgba(75, 192, 192, 0.2)',
+                                        'rgba(54, 162, 235, 0.2)',
+                                        'rgba(153, 102, 255, 0.2)',
+                                        'rgba(201, 203, 207, 0.2)'
+                                    ],
+                                    borderColor: [
+                                        'rgb(255, 99, 132)',
+                                        'rgb(255, 159, 64)',
+                                        'rgb(255, 205, 86)',
+                                        'rgb(75, 192, 192)',
+                                        'rgb(54, 162, 235)',
+                                        'rgb(153, 102, 255)',
+                                        'rgb(201, 203, 207)'
+                                    ],
+                                    borderWidth: 1
+                                }]
+                            },
+                            options: {
+                              indexAxis: 'y',
+                                scales: {
+                                    y: {
+                                        beginAtZero: true
+                                    }
+                                }
+                            }
+                        });
+                    });
+                  </script>
+                  <!-- End Bar Chart 2 -->
+                </div>
+              </div>
+            </div>
+            <!-- -------------------grant-22---------------------- -->
+            <div class="col-lg-6">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">Defence Pensions Grant-22</h5>
 
-      </div>
-  </div>
-</div>
+                  <!-- Bar Chart 2 -->
+                  <canvas id="barChart4" style="max-height: 800px"></canvas>
+                  <script>
+                    document.addEventListener("DOMContentLoaded", () => {
+                        new Chart(document.getElementById('barChart4'), {
+                            type: 'bar',
+                            data: {
+                                labels: {{ minorhd_desc_22|safe }},
+                                datasets: [{
+                                    label: 'Grant-22',  // Correct label for this chart
+                                    data: {{ amt_22|safe }},
+                                    backgroundColor: [
+                                        'rgba(255, 99, 132, 0.2)',
+                                        'rgba(255, 159, 64, 0.2)',
+                                        'rgba(255, 205, 86, 0.2)',
+                                        'rgba(75, 192, 192, 0.2)',
+                                        'rgba(54, 162, 235, 0.2)',
+                                        'rgba(153, 102, 255, 0.2)',
+                                        'rgba(201, 203, 207, 0.2)'
+                                    ],
+                                    borderColor: [
+                                        'rgb(255, 99, 132)',
+                                        'rgb(255, 159, 64)',
+                                        'rgb(255, 205, 86)',
+                                        'rgb(75, 192, 192)',
+                                        'rgb(54, 162, 235)',
+                                        'rgb(153, 102, 255)',
+                                        'rgb(201, 203, 207)'
+                                    ],
+                                    borderWidth: 1
+                                }]
+                            },
+                            options: {
+                              indexAxis: 'y',
+                                scales: {
+                                    y: {
+                                        beginAtZero: true
+                                    }
+                                }
+                            }
+                        });
+                    });
+                  </script>
+                
+                </div>
+              </div>
+            </div>
 
-<!-- -------------------grant-21---------------------- -->
+          
 
-<div class="col-lg-6">
-  <div class="card">
-      <div class="card-body">
-          <h5 class="card-title">Capital Outlay on Defence Services Grant-21</h5>
+            <!-- Recent Sales -->
+            <!-- <div class="col-12">
+              <div class="card recent-sales overflow-auto">
+                <div class="filter">
+                  <a class="icon" href="#" data-bs-toggle="dropdown"
+                    ><i class="bi bi-three-dots"></i
+                  ></a>
+                  <ul
+                    class="dropdown-menu dropdown-menu-end dropdown-menu-arrow"
+                  >
+                    <li class="dropdown-header text-start">
+                      <h6>Filter</h6>
+                    </li>
+                    <li><a class="dropdown-item" href="#">Today</a></li>
+                    <li><a class="dropdown-item" href="#">This Month</a></li>
+                    <li><a class="dropdown-item" href="#">This Year</a></li>
+                  </ul>
+                </div>
 
-          <!-- Bar Chart 2 -->
-          <canvas id="barChart3" style="max-height: 800px;"></canvas>
-          <script>
-              document.addEventListener("DOMContentLoaded", () => {
-                  new Chart(document.getElementById('barChart3'), {
-                      type: 'bar',
-                      data: {
-                          labels: {{ minorhd_desc_21|safe }},
-                          datasets: [{
-                              label: 'Bar Chart 2',  // Correct label for this chart
-                              data: {{ amt_21|safe }},
-                              backgroundColor: [
-                                  'rgba(255, 99, 132, 0.2)',
-                                  'rgba(255, 159, 64, 0.2)',
-                                  'rgba(255, 205, 86, 0.2)',
-                                  'rgba(75, 192, 192, 0.2)',
-                                  'rgba(54, 162, 235, 0.2)',
-                                  'rgba(153, 102, 255, 0.2)',
-                                  'rgba(201, 203, 207, 0.2)'
-                              ],
-                              borderColor: [
-                                  'rgb(255, 99, 132)',
-                                  'rgb(255, 159, 64)',
-                                  'rgb(255, 205, 86)',
-                                  'rgb(75, 192, 192)',
-                                  'rgb(54, 162, 235)',
-                                  'rgb(153, 102, 255)',
-                                  'rgb(201, 203, 207)'
-                              ],
-                              borderWidth: 1
-                          }]
-                      },
-                      options: {
-                          scales: {
-                              y: {
-                                  beginAtZero: true
-                              }
-                          }
-                      }
-                  });
-              });
-          </script>
-          <!-- End Bar Chart 2 -->
+                <div class="card-body">
+                  <h5 class="card-title">Recent Sales <span>| Today</span></h5>
 
-      </div>
-  </div>
-</div>
-<!-- -------------------grant-22---------------------- -->
-<div class="col-lg-6">
-  <div class="card">
-      <div class="card-body">
-          <h5 class="card-title">Defence Pensions Grant-22</h5>
-
-          <!-- Bar Chart 2 -->
-          <canvas id="barChart4" style="max-height: 800px;"></canvas>
-          <script>
-              document.addEventListener("DOMContentLoaded", () => {
-                  new Chart(document.getElementById('barChart4'), {
-                      type: 'bar',
-                      data: {
-                          labels: {{ minorhd_desc_22|safe }},
-                          datasets: [{
-                              label: 'Bar Chart 2',  // Correct label for this chart
-                              data: {{ amt_22|safe }},
-                              backgroundColor: [
-                                  'rgba(255, 99, 132, 0.2)',
-                                  'rgba(255, 159, 64, 0.2)',
-                                  'rgba(255, 205, 86, 0.2)',
-                                  'rgba(75, 192, 192, 0.2)',
-                                  'rgba(54, 162, 235, 0.2)',
-                                  'rgba(153, 102, 255, 0.2)',
-                                  'rgba(201, 203, 207, 0.2)'
-                              ],
-                              borderColor: [
-                                  'rgb(255, 99, 132)',
-                                  'rgb(255, 159, 64)',
-                                  'rgb(255, 205, 86)',
-                                  'rgb(75, 192, 192)',
-                                  'rgb(54, 162, 235)',
-                                  'rgb(153, 102, 255)',
-                                  'rgb(201, 203, 207)'
-                              ],
-                              borderWidth: 1
-                          }]
-                      },
-                      options: {
-                          scales: {
-                              y: {
-                                  beginAtZero: true
-                              }
-                          }
-                      }
-                  });
-              });
-          </script>
-          <!-- End Bar Chart 2 -->
-
-      </div>
-  </div>
-</div>
-
-
-<!-- Testing Chart  -->
-
-
-<!-- Recent Sales -->
-<div class="col-12">
-    <div class="card recent-sales overflow-auto">
-
-        <div class="filter">
-            <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-            <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                <li class="dropdown-header text-start">
-                    <h6>Filter</h6>
-                </li>
-                <li><a class="dropdown-item" href="#">Today</a></li>
-                <li><a class="dropdown-item" href="#">This Month</a></li>
-                <li><a class="dropdown-item" href="#">This Year</a></li>
-            </ul>
-        </div>
-
-        <div class="card-body">
-            <h5 class="card-title">Recent Sales <span>| Today</span></h5>
-
-            <table class="table table-borderless datatable">
-                <thead>
-                    <tr>
+                  <table class="table table-borderless datatable">
+                    <thead>
+                      <tr>
                         <th scope="col">#</th>
                         <th scope="col">Customer</th>
                         <th scope="col">Product</th>
                         <th scope="col">Price</th>
                         <th scope="col">Status</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
                         <th scope="row"><a href="#">#2457</a></th>
                         <td>Brandon Jacob</td>
-                        <td><a href="#" class="text-primary">At praesentium minu</a></td>
+                        <td>
+                          <a href="#" class="text-primary"
+                            >At praesentium minu</a
+                          >
+                        </td>
                         <td>$64</td>
                         <td><span class="badge bg-success">Approved</span></td>
-                    </tr>
-                    <tr>
+                      </tr>
+                      <tr>
                         <th scope="row"><a href="#">#2147</a></th>
                         <td>Bridie Kessler</td>
-                        <td><a href="#" class="text-primary">Blanditiis dolor omnis similique</a></td>
+                        <td>
+                          <a href="#" class="text-primary"
+                            >Blanditiis dolor omnis similique</a
+                          >
+                        </td>
                         <td>$47</td>
                         <td><span class="badge bg-warning">Pending</span></td>
-                    </tr>
-                    <tr>
+                      </tr>
+                      <tr>
                         <th scope="row"><a href="#">#2049</a></th>
                         <td>Ashleigh Langosh</td>
-                        <td><a href="#" class="text-primary">At recusandae consectetur</a></td>
+                        <td>
+                          <a href="#" class="text-primary"
+                            >At recusandae consectetur</a
+                          >
+                        </td>
                         <td>$147</td>
                         <td><span class="badge bg-success">Approved</span></td>
-                    </tr>
-                    <tr>
+                      </tr>
+                      <tr>
                         <th scope="row"><a href="#">#2644</a></th>
                         <td>Angus Grady</td>
-                        <td><a href="#" class="text-primary">Ut voluptatem id earum et</a></td>
+                        <td>
+                          <a href="#" class="text-primary"
+                            >Ut voluptatem id earum et</a
+                          >
+                        </td>
                         <td>$67</td>
                         <td><span class="badge bg-danger">Rejected</span></td>
-                    </tr>
-                    <tr>
+                      </tr>
+                      <tr>
                         <th scope="row"><a href="#">#2645</a></th>
                         <td>Raheem Lehner</td>
-                        <td><a href="#" class="text-primary">Sunt similique distinctio</a></td>
+                        <td>
+                          <a href="#" class="text-primary"
+                            >Sunt similique distinctio</a
+                          >
+                        </td>
                         <td>$165</td>
                         <td><span class="badge bg-success">Approved</span></td>
-                    </tr>
-                </tbody>
-            </table>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div> -->
+            <!-- End Recent Sales -->
 
+            <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+          </div>
         </div>
-
+      </div>
     </div>
-</div>
-<!-- End Recent Sales -->
-
-
-
-
-
-<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-
+  </div>
+</section>
 
 {% endblock %}
