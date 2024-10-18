@@ -3,6 +3,10 @@ from django.shortcuts import render
 from django.db import connection
 from .models import MasterAll,BudgetData
 from .chart import get_reports_chart_data
+from django.shortcuts import render
+from .models import MasterAll  # Import your models if not already imported
+from  .bud_exp_calcul import calculate_budget_summary, calculate_sum_for_grant,budget_ongrantlevel,total_budget_and_expenditure
+
 
 # Create your views here.
 
@@ -14,9 +18,6 @@ def base(request):
 
 
 # views.py
-from django.shortcuts import render
-from .models import MasterAll  # Import your models if not already imported
-from  .bud_exp_calcul import calculate_budget_summary, calculate_sum_for_grant,budget_ongrantlevel
 
 def index(request):
     # Use the imported function to get the budget summary
@@ -27,8 +28,9 @@ def index(request):
     Defence_service_revenue_bud = budget_ongrantlevel([2076,2077, 2078,2079,2080])
     capital_Outlay_bud = budget_ongrantlevel([4076])
     defence_pensions_bud = budget_ongrantlevel([2071])
+  
 
-    defence_budget=mod_civil_bud+defence_pensions_bud+capital_Outlay_bud+defence_pensions_bud
+    defence_budget=mod_civil_bud+Defence_service_revenue_bud+capital_Outlay_bud+defence_pensions_bud
   
     # Use the imported function to calculate sums for specific grants
     mod_civil = calculate_sum_for_grant('c', 19)  # 'mod_civil' sum
@@ -37,6 +39,10 @@ def index(request):
     dps_sum = calculate_sum_for_grant('c', 22)    # 'Defence Pension Service' sum
     
     defenceexp=mod_civil+DSR+cap_sum+dps_sum
+    print("-------------->expen",defenceexp)
+
+    # Get total expenditure and percentage from total_budget_and_expenditure function
+    total_expenditure, expenditure_percentage = total_budget_and_expenditure()
 
 
     # Get chart data for multiple grants
