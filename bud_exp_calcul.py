@@ -100,15 +100,16 @@ def total_budget_and_expenditure():
     DSR = calculate_sum_for_grant('c', 20)        # 'Defence Service Revenue' sum
     cap_sum = calculate_sum_for_grant('c', 21)    # 'Capital Outlay' sum
     dps_sum = calculate_sum_for_grant('c', 22) 
-
     # Total expenditure
     defenceexp = mod_civil + DSR + cap_sum + dps_sum
-
     # Calculate budget from different grants
     mod_civil_bud = budget_ongrantlevel([2014, 2037, 2052, 2059, 2075, 2216, 2852, 4047, 4059, 4070, 4216, 7615])
     Defence_service_revenue_bud = budget_ongrantlevel([2076, 2077, 2078, 2079, 2080])
     capital_Outlay_bud = budget_ongrantlevel([4076])
     defence_pensions_bud = budget_ongrantlevel([2071])
+
+
+
 
     # Total defence budget
     defence_budget = (mod_civil_bud + Defence_service_revenue_bud + 
@@ -128,3 +129,80 @@ def total_budget_and_expenditure():
         expenditure_percentage = 0.0  # Handle as needed
 
     return defenceexp, expenditure_percentage
+
+
+# def grantwisepercentage():
+#     # Calculate expenditure from different grants
+#     mod_civil = calculate_sum_for_grant('c', 19)  # 'mod_civil' sum
+#     DSR = calculate_sum_for_grant('c', 20)        # 'Defence Service Revenue' sum
+#     cap_sum = calculate_sum_for_grant('c', 21)    # 'Capital Outlay' sum
+#     dps_sum = calculate_sum_for_grant('c', 22)    # 'Defence Pensions' sum
+
+#     # Calculate budget from different grants
+#     mod_civil_bud = budget_ongrantlevel([2014, 2037, 2052, 2059, 2075, 2216, 2852, 4047, 4059, 4070, 4216, 7615])
+#     Defence_service_revenue_bud = budget_ongrantlevel([2076, 2077, 2078, 2079, 2080])
+#     capital_Outlay_bud = budget_ongrantlevel([4076])
+#     defence_pensions_bud = budget_ongrantlevel([2071])
+
+#     # Avoid division by zero and calculate percentages rounded to 2 decimal places
+#     mod_civil_pct = round((mod_civil / mod_civil_bud) * 100, 2) if mod_civil_bud != 0 else 0.0
+#     DSR_pct = round((DSR / Defence_service_revenue_bud) * 100, 2) if Defence_service_revenue_bud != 0 else 0.0
+#     capital_Outlay_pct = round((cap_sum / capital_Outlay_bud) * 100, 2) if capital_Outlay_bud != 0 else 0.0
+#     defence_pensions_pct = round((dps_sum / defence_pensions_bud) * 100, 2) if defence_pensions_bud != 0 else 0.0
+
+#     # Return the results in a dictionary
+#     print("mod_civil_pct",mod_civil_pct)
+#     print("DSR_pct",DSR_pct)
+#     print("capital_Outlay_pct",capital_Outlay_pct)
+#     print("defence_pensions_pct",defence_pensions_pct)
+#     return {
+#         "mod_civil_pct": mod_civil_pct,
+#         "DSR_pct": DSR_pct,
+#         "capital_Outlay_pct": capital_Outlay_pct,
+#         "defence_pensions_pct": defence_pensions_pct
+#     }
+
+
+
+# ---------------------------------------------------------------
+
+
+import sys
+
+def grantwisepercentage():
+    # Calculate expenditure from different grants
+    mod_civil = calculate_sum_for_grant('c', 19)  # 'mod_civil' sum
+    DSR = calculate_sum_for_grant('c', 20)        # 'Defence Service Revenue' sum
+    cap_sum = calculate_sum_for_grant('c', 21)    # 'Capital Outlay' sum
+    dps_sum = calculate_sum_for_grant('c', 22)    # 'Defence Pensions' sum
+
+    # Calculate budget from different grants
+    mod_civil_bud = budget_ongrantlevel([2014, 2037, 2052, 2059, 2075, 2216, 2852, 4047, 4059, 4070, 4216, 7615])
+    Defence_service_revenue_bud = budget_ongrantlevel([2076, 2077, 2078, 2079, 2080])
+    capital_Outlay_bud = budget_ongrantlevel([4076])
+    defence_pensions_bud = budget_ongrantlevel([2071])
+
+    # Avoid division by zero and calculate percentages rounded to 2 decimal places
+    mod_civil_pct = round((mod_civil / mod_civil_bud) * 100, 2) if mod_civil_bud != 0 else 0.0
+    DSR_pct = round((DSR / Defence_service_revenue_bud) * 100, 2) if Defence_service_revenue_bud != 0 else 0.0
+    capital_Outlay_pct = round((cap_sum / capital_Outlay_bud) * 100, 2) if capital_Outlay_bud != 0 else 0.0
+    defence_pensions_pct = round((dps_sum / defence_pensions_bud) * 100, 2) if defence_pensions_bud != 0 else 0.0
+
+    # Print and flush the output immediately
+    print("mod_civil_pct:", mod_civil_pct)
+    sys.stdout.flush()  # Ensure immediate output in terminal
+    print("DSR_pct:", DSR_pct)
+    sys.stdout.flush()  # Ensure immediate output in terminal
+    print("capital_Outlay_pct:", capital_Outlay_pct)
+    sys.stdout.flush()  # Ensure immediate output in terminal
+    print("defence_pensions_pct:", defence_pensions_pct)
+    sys.stdout.flush()  # Ensure immediate output in terminal
+
+    return {
+        "mod_civil_pct": mod_civil_pct,
+        "DSR_pct": DSR_pct,
+        "capital_Outlay_pct": capital_Outlay_pct,
+        "defence_pensions_pct": defence_pensions_pct
+    }
+
+grantwisepercentage()
