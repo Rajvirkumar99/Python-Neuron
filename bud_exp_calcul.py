@@ -184,19 +184,21 @@ def grantwisepercentage():
 
     # Avoid division by zero and calculate percentages rounded to 2 decimal places
     mod_civil_pct = round((mod_civil / mod_civil_bud) * 100, 2) if mod_civil_bud != 0 else 0.0
+    print("mod_civil_pct:", mod_civil_pct)
+
     DSR_pct = round((DSR / Defence_service_revenue_bud) * 100, 2) if Defence_service_revenue_bud != 0 else 0.0
     capital_Outlay_pct = round((cap_sum / capital_Outlay_bud) * 100, 2) if capital_Outlay_bud != 0 else 0.0
     defence_pensions_pct = round((dps_sum / defence_pensions_bud) * 100, 2) if defence_pensions_bud != 0 else 0.0
 
-    # Print and flush the output immediately
-    print("mod_civil_pct:", mod_civil_pct)
-    sys.stdout.flush()  # Ensure immediate output in terminal
-    print("DSR_pct:", DSR_pct)
-    sys.stdout.flush()  # Ensure immediate output in terminal
-    print("capital_Outlay_pct:", capital_Outlay_pct)
-    sys.stdout.flush()  # Ensure immediate output in terminal
-    print("defence_pensions_pct:", defence_pensions_pct)
-    sys.stdout.flush()  # Ensure immediate output in terminal
+   
+    
+    # sys.stdout.flush()  # Ensure immediate output in terminal
+    # print("DSR_pct:", DSR_pct)
+    # sys.stdout.flush()  # Ensure immediate output in terminal
+    # print("capital_Outlay_pct:", capital_Outlay_pct)
+    # sys.stdout.flush()  # Ensure immediate output in terminal
+    # print("defence_pensions_pct:", defence_pensions_pct)
+    # sys.stdout.flush()  # Ensure immediate output in terminal
 
     return {
         "mod_civil_pct": mod_civil_pct,
@@ -205,4 +207,4 @@ def grantwisepercentage():
         "defence_pensions_pct": defence_pensions_pct
     }
 
-grantwisepercentage()
+
