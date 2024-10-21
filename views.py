@@ -5,7 +5,7 @@ from .models import MasterAll,BudgetData
 from .chart import get_reports_chart_data
 from django.shortcuts import render
 from .models import MasterAll  # Import your models if not already imported
-from  .bud_exp_calcul import calculate_budget_summary, calculate_sum_for_grant,budget_ongrantlevel,total_budget_and_expenditure
+from  .bud_exp_calcul import calculate_budget_summary, calculate_sum_for_grant,budget_ongrantlevel,total_budget_and_expenditure,grantwisepercentage
 
 
 # Create your views here.
@@ -17,7 +17,7 @@ def base(request):
     return render(request, 'base.html')
 
 
-# views.py
+
 
 def index(request):
     # Use the imported function to get the budget summary
@@ -39,7 +39,7 @@ def index(request):
     dps_sum = calculate_sum_for_grant('c', 22)    # 'Defence Pension Service' sum
     
     defenceexp=mod_civil+DSR+cap_sum+dps_sum
-    print("-------------->expen",defenceexp)
+
 
     # Get total expenditure and percentage from total_budget_and_expenditure function
     total_expenditure, expenditure_percentage = total_budget_and_expenditure()
@@ -50,6 +50,19 @@ def index(request):
     minorhd_desc_20, amt_20 = get_reports_chart_data(20)
     minorhd_desc_21, amt_21 = get_reports_chart_data(21)
     minorhd_desc_22, amt_22 = get_reports_chart_data(22)
+
+
+    # Calculate grantwise percentage
+    grantwise_exp = grantwisepercentage()
+
+    # Extract individual percentages from grantwise_exp
+    mod_civil_pct = grantwise_exp["mod_civil_pct"]
+    DSR_pct = grantwise_exp["DSR_pct"]
+    capital_Outlay_pct = grantwise_exp["capital_Outlay_pct"]
+    defence_pensions_pct = grantwise_exp["defence_pensions_pct"]
+
+    
+    
 
     # Create a single context dictionary with all values
     context = {
@@ -74,11 +87,21 @@ def index(request):
         'minorhd_desc_22': minorhd_desc_22,
         'amt_22': amt_22,
         'total_expenditure': total_expenditure,  # Pass total expenditure
-        'expenditure_percentage': expenditure_percentage  # Pass expenditure percentage
+        'expenditure_percentage': expenditure_percentage,  # Pass expenditure percentage
 
+         # Grantwise expenditure percentages
+        'mod_civil_pct': mod_civil_pct,
+        'DSR_pct': DSR_pct,
+        'capital_Outlay_pct': capital_Outlay_pct,
+        'defence_pensions_pct': defence_pensions_pct
     }
 
     return render(request, 'index.html', context)
+
+
+
+
+
 
 
 
