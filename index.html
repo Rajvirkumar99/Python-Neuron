@@ -1,4 +1,6 @@
-{% extends 'base.html' %} {% load static %} {% block content %}
+{% extends 'base.html' %} 
+{% load static %}
+{% block content %}
 
 <!-- Change -->
 
@@ -540,260 +542,300 @@
   </div>
 </div>
 -->
+
+
+
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
 
-        <!-- #-------------------- Dummy Bar chart for upcoming devlopment ------------------------------- -->
+<!-- #-------------------- Bar chart for upcoming devlopment ------------------------------- -->
 
-        <!-- -------------------grant-19---------------------- -->
+<!-- -------------------grant-19---------------------- -->
+<!-- -------------------grant-20---------------------- -->
 
-        <div class="section">
-          <div class="row">
-            <div class="col-lg-6">
-              <div class="card">
-                <div class="card-body">
-                  <h5 class="card-title">
-                    Ministry of Defence (Civil) Grant-19
-                  </h5>
+<div class="section">
+  <div class=".container">
+    <div class="row">
 
-                  <!-- Bar Chart 1 -->
-                  <canvas id="barChart1" style="max-height: 800px"></canvas>
-              <!-- Include Chart.js and chartjs-plugin-datalabels -->
-              <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-              <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
-              <script>
-                document.addEventListener("DOMContentLoaded", () => {
-                  new Chart(document.querySelector('#barChart1'), {
-                    type: 'bar',
-                    data: {
-                      labels: {{ minorhd_desc_19|safe }},
-                      datasets: [{
-                        label: 'Bar Chart 1',
-                        data: {{ amt_19|safe }},
-                        backgroundColor: [
-                          'rgba(255, 99, 132, 0.2)',
-                          'rgba(255, 159, 64, 0.2)',
-                          'rgba(255, 205, 86, 0.2)',
-                          'rgba(75, 192, 192, 0.2)',
-                          'rgba(54, 162, 235, 0.2)',
-                          'rgba(153, 102, 255, 0.2)',
-                          'rgba(201, 203, 207, 0.2)'
-                        ],
-                        borderColor: [
-                          'rgb(255, 99, 132)',
-                          'rgb(255, 159, 64)',
-                          'rgb(255, 205, 86)',
-                          'rgb(75, 192, 192)',
-                          'rgb(54, 162, 235)',
-                          'rgb(153, 102, 255)',
-                          'rgb(201, 203, 207)'
-                        ],
-                        borderWidth: 1
-                      }]
+      <!-- Bar Chart 1 - Ministry of Defence (Civil) -->
+      <div class="col-lg-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Ministry of Defence (Civil)</h5>
+            <div id="barChart1" style="width: 100%; height: 800px;"></div>
+            <!-- Include Plotly.js -->
+            <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+            <script>
+              document.addEventListener("DOMContentLoaded", () => {
+                const labels = {{ minorhd_desc_19|safe }};  // Descriptions for y-axis
+                const dataValues = {{ amt_19|safe }};  // Values for x-axis
+            
+                const data = [{
+                  type: 'bar',
+                  x: dataValues,
+                  y: labels,
+                  orientation: 'h',
+                  marker: {
+                    color: [
+                      'rgba(255, 99, 132, 0.2)',
+                      'rgba(255, 159, 64, 0.2)',
+                      'rgba(255, 205, 86, 0.2)',
+                      'rgba(75, 192, 192, 0.2)',
+                      'rgba(54, 162, 235, 0.2)',
+                      'rgba(153, 102, 255, 0.2)',
+                      'rgba(201, 203, 207, 0.2)',
+                    ],
+                    line: {
+                      color: [
+                        'rgb(255, 99, 132)',
+                        'rgb(255, 159, 64)',
+                        'rgb(255, 205, 86)',
+                        'rgb(75, 192, 192)',
+                        'rgb(54, 162, 235)',
+                        'rgb(153, 102, 255)',
+                        'rgb(201, 203, 207)'
+                      ],
+                      width: 1
+                    }
+                  },
+                  text: dataValues.map(val => val.toLocaleString()),
+                  textposition: 'auto',
+                  hovertemplate: '<b>%{y}</b> ( ₹ In crore ): <b>%{x}</b><extra></extra>',  // Bold labels and values
+                  hoverlabel: {
+                    font: {
+                      size: 16,  // Increase font size
+                      color: '#000',
+                      family: 'Arial, sans-serif'
+                    }
+                  }
+                }];
+            
+                const layout = {
+                  title: 'Grant-19',
+                  xaxis: {
+                    title: 'Amount (₹)',
+                    zeroline: true
+                  },
+                  yaxis: {
+                    title: 'Description',
+                    tickangle: 0,
+                    autorange: 'reversed',
+                    tickfont: {
+                      size: 12,
+                      color: '#000'
                     },
-                    options: {
-                      indexAxis: 'y',
-                      scales: {
-                        x: {
-                          beginAtZero: true,
-                          max: 3000, // Manually setting max value to give space for large numbers
-                        }
-                      },
-                      plugins: {
-                        datalabels: {
-                          anchor: 'end',
-                          align: 'end',
-                          formatter: function(value) {
-                            return value; // Display exact data value
-                          },
-                          color: 'black',
-                          font: {
-                            weight: 'bold'
-                          },
-                          clip: false, // Ensure labels don't get clipped
-                        }
-                      },
-                      layout: {
-                        padding: {
-                          right: 50 // Add padding to the right to avoid labels being cut off
-                        }
+                    automargin: true
+                  },
+                  hovermode: 'closest',  // Only highlight the bar without affecting the Y-axis labels
+                  showlegend: false
+                };
+            
+                Plotly.newPlot('barChart1', data, layout);
+              });
+            </script>
+            
+            
+            
+          </div>
+        </div>
+      </div>
+
+      <!-- Bar Chart 2 - Defence Services (Revenue) -->
+      <div class="col-lg-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Defence Services (Revenue)</h5>
+            <div id="barChart2" style="width: 100%; height: 800px;"></div>
+            <script>
+              document.addEventListener("DOMContentLoaded", () => {
+                const labels = {{ minorhd_desc_20|safe }};
+                const dataValues = {{ amt_20|safe }};
+
+                const data = [{
+                  type: 'bar',
+                  x: dataValues,
+                  y: labels,
+                  orientation: 'h',
+                  marker: {
+                    color: [
+                      'rgba(255, 99, 132, 0.2)',
+                      'rgba(255, 159, 64, 0.2)',
+                      'rgba(255, 205, 86, 0.2)',
+                      'rgba(75, 192, 192, 0.2)',
+                      'rgba(54, 162, 235, 0.2)',
+                      'rgba(153, 102, 255, 0.2)',
+                      'rgba(201, 203, 207, 0.2)'
+                    ],
+                    line: {
+                      color: [
+                        'rgb(255, 99, 132)',
+                        'rgb(255, 159, 64)',
+                        'rgb(255, 205, 86)',
+                        'rgb(75, 192, 192)',
+                        'rgb(54, 162, 235)',
+                        'rgb(153, 102, 255)',
+                        'rgb(201, 203, 207)'
+                      ],
+                      width: 1
+                    }
+                  },
+                  text: dataValues.map(val => val.toLocaleString()),
+                  textposition: 'auto',
+                  hovertemplate: '<b>%{y}</b> ( ₹ In crore ) : <b>%{x}</b><extra></extra> ',  // Bold labels and values
+                  hoverinfo: 'none',
+                  hoverlabel: {  // Custom hover label settings
+                    font: {
+                      size: 16,  // Increase font size
+                      color: '#000',  // Change text color if needed
+                      family: 'Arial, sans-serif'  // Adjust font family
+                    }, 
+                  }
+                }];
+            
+                const layout = {
+                  title: 'Grant-19',
+                  xaxis: {
+                    title: 'Amount (₹)',
+                    zeroline: true
+                  },
+                  yaxis: {
+                    title: 'Description',
+                    tickangle: 0,
+                    autorange: 'reversed',
+                    tickfont: {
+                      size: 12,
+                      color: '#000'  // Adjust tick font color if needed
+                    },
+                    tickpadding: 10,
+                    automargin: true
+                  },
+                  showlegend: false
+                };
+            
+                Plotly.newPlot('barChart2', data, layout);
+              });
+            </script>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+ 
+<!-- -------------------grant-21---------------------- -->
+<!-- -------------------grant-22---------------------- -->
+<div class="section">
+  <div class=".container">
+    <div class="row">
+      <!-- Bar Chart 3 - Capital Outlay on Defence Services (Grant-21) -->
+      <div class="col-lg-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Capital Outlay on Defence Services</h5>
+            <canvas id="barChart3" style="max-height: 800px;"></canvas>
+            <!-- Include Chart.js -->
+            <script>
+              document.addEventListener("DOMContentLoaded", () => {
+                new Chart(document.getElementById('barChart3'), {
+                  type: 'bar',
+                  data: {
+                    labels: {{ minorhd_desc_21|safe }},
+                    datasets: [{
+                      label: 'Grant-21',
+                      data: {{ amt_21|safe }},
+                      backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(255, 159, 64, 0.2)',
+                        'rgba(255, 205, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(201, 203, 207, 0.2)'
+                      ],
+                      borderColor: [
+                        'rgb(255, 99, 132)',
+                        'rgb(255, 159, 64)',
+                        'rgb(255, 205, 86)',
+                        'rgb(75, 192, 192)',
+                        'rgb(54, 162, 235)',
+                        'rgb(153, 102, 255)',
+                        'rgb(201, 203, 207)'
+                      ],
+                      borderWidth: 1
+                    }]
+                  },
+                  options: {
+                    indexAxis: 'y',
+                    scales: {
+                      y: {
+                        beginAtZero: true
                       }
-                    },
-                    plugins: [ChartDataLabels]
-                  });
+                    }
+                  }
                 });
-              </script>   
-                  <!-- End Bar Chart 1 -->
-              </div>
-              </div>
-            </div>
-            <!-- -------------------grant-20---------------------- -->
-            <div class="col-lg-6">
-              <div class="card">
-                <div class="card-body">
-                  <h5 class="card-title">
-                    Defence Services (Revenue) Grant-20
-                  </h5>
+              });
+            </script>
+          </div>
+        </div>
+      </div>
 
-                  <!-- Bar Chart 2 -->
-                  <canvas id="barChart2" style="max-height: 800px"></canvas>
-                  <script>
-                    document.addEventListener("DOMContentLoaded", () => {
-                        new Chart(document.getElementById('barChart2'), {
-                            type: 'bar',
-                            data: {
-                                labels: {{ minorhd_desc_20|safe }},
-                                datasets: [{
-                                    label: 'Bar Chart 2',  // Correct label for this chart
-                                    data: {{ amt_20|safe }},
-                                    backgroundColor: [
-                                        'rgba(255, 99, 132, 0.2)',
-                                        'rgba(255, 159, 64, 0.2)',
-                                        'rgba(255, 205, 86, 0.2)',
-                                        'rgba(75, 192, 192, 0.2)',
-                                        'rgba(54, 162, 235, 0.2)',
-                                        'rgba(153, 102, 255, 0.2)',
-                                        'rgba(201, 203, 207, 0.2)'
-                                    ],
-                                    borderColor: [
-                                        'rgb(255, 99, 132)',
-                                        'rgb(255, 159, 64)',
-                                        'rgb(255, 205, 86)',
-                                        'rgb(75, 192, 192)',
-                                        'rgb(54, 162, 235)',
-                                        'rgb(153, 102, 255)',
-                                        'rgb(201, 203, 207)'
-                                    ],
-                                    borderWidth: 1
-                                }]
-                            },
-                            options: {
-                              indexAxis: 'y',
-                                scales: {
-                                    y: {
-                                        beginAtZero: true
-                                    }
-                                }
-                            }
-                        });
-                    });
-                  </script>
-                  <!-- End Bar Chart 2 -->
-                </div>
-              </div>
-            </div>
-        
-            <!-- -------------------grant-21---------------------- -->
+      <!-- Bar Chart 4 - Defence Pensions (Grant-22) -->
+      <div class="col-lg-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Defence Pensions</h5>
+            <canvas id="barChart4" style="max-height: 800px;"></canvas>
+            <!-- Include Chart.js -->
+            <script>
+              document.addEventListener("DOMContentLoaded", () => {
+                new Chart(document.getElementById('barChart4'), {
+                  type: 'bar',
+                  data: {
+                    labels: {{ minorhd_desc_22|safe }},
+                    datasets: [{
+                      label: 'Grant-22',
+                      data: {{ amt_22|safe }},
+                      backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(255, 159, 64, 0.2)',
+                        'rgba(255, 205, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(201, 203, 207, 0.2)'
+                      ],
+                      borderColor: [
+                        'rgb(255, 99, 132)',
+                        'rgb(255, 159, 64)',
+                        'rgb(255, 205, 86)',
+                        'rgb(75, 192, 192)',
+                        'rgb(54, 162, 235)',
+                        'rgb(153, 102, 255)',
+                        'rgb(201, 203, 207)'
+                      ],
+                      borderWidth: 1
+                    }]
+                  },
+                  options: {
+                    indexAxis: 'y',
+                    scales: {
+                      y: {
+                        beginAtZero: true
+                      }
+                    }
+                  }
+                });
+              });
+            </script>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-            <div class="col-lg-6">
-              <div class="card">
-                <div class="card-body">
-                  <h5 class="card-title">
-                    Capital Outlay on Defence Services Grant-21
-                  </h5>
-
-                  <!-- Bar Chart 2 -->
-                  <canvas id="barChart3" style="max-height: 800px"></canvas>
-                  <script>
-                    document.addEventListener("DOMContentLoaded", () => {
-                        new Chart(document.getElementById('barChart3'), {
-                            type: 'bar',
-                            data: {
-                                labels: {{ minorhd_desc_21|safe }},
-                                datasets: [{
-                                    label: 'Bar Chart 2',  // Correct label for this chart
-                                    data: {{ amt_21|safe }},
-                                    backgroundColor: [
-                                        'rgba(255, 99, 132, 0.2)',
-                                        'rgba(255, 159, 64, 0.2)',
-                                        'rgba(255, 205, 86, 0.2)',
-                                        'rgba(75, 192, 192, 0.2)',
-                                        'rgba(54, 162, 235, 0.2)',
-                                        'rgba(153, 102, 255, 0.2)',
-                                        'rgba(201, 203, 207, 0.2)'
-                                    ],
-                                    borderColor: [
-                                        'rgb(255, 99, 132)',
-                                        'rgb(255, 159, 64)',
-                                        'rgb(255, 205, 86)',
-                                        'rgb(75, 192, 192)',
-                                        'rgb(54, 162, 235)',
-                                        'rgb(153, 102, 255)',
-                                        'rgb(201, 203, 207)'
-                                    ],
-                                    borderWidth: 1
-                                }]
-                            },
-                            options: {
-                              indexAxis: 'y',
-                                scales: {
-                                    y: {
-                                        beginAtZero: true
-                                    }
-                                }
-                            }
-                        });
-                    });
-                  </script>
-                  <!-- End Bar Chart 2 -->
-                </div>
-              </div>
-            </div>
-            <!-- -------------------grant-22---------------------- -->
-            <div class="col-lg-6">
-              <div class="card">
-                <div class="card-body">
-                  <h5 class="card-title">Defence Pensions Grant-22</h5>
-
-                  <!-- Bar Chart 2 -->
-                  <canvas id="barChart4" style="max-height: 800px"></canvas>
-                  <script>
-                    document.addEventListener("DOMContentLoaded", () => {
-                        new Chart(document.getElementById('barChart4'), {
-                            type: 'bar',
-                            data: {
-                                labels: {{ minorhd_desc_22|safe }},
-                                datasets: [{
-                                    label: 'Grant-22',  // Correct label for this chart
-                                    data: {{ amt_22|safe }},
-                                    backgroundColor: [
-                                        'rgba(255, 99, 132, 0.2)',
-                                        'rgba(255, 159, 64, 0.2)',
-                                        'rgba(255, 205, 86, 0.2)',
-                                        'rgba(75, 192, 192, 0.2)',
-                                        'rgba(54, 162, 235, 0.2)',
-                                        'rgba(153, 102, 255, 0.2)',
-                                        'rgba(201, 203, 207, 0.2)'
-                                    ],
-                                    borderColor: [
-                                        'rgb(255, 99, 132)',
-                                        'rgb(255, 159, 64)',
-                                        'rgb(255, 205, 86)',
-                                        'rgb(75, 192, 192)',
-                                        'rgb(54, 162, 235)',
-                                        'rgb(153, 102, 255)',
-                                        'rgb(201, 203, 207)'
-                                    ],
-                                    borderWidth: 1
-                                }]
-                            },
-                            options: {
-                              indexAxis: 'y',
-                                scales: {
-                                    y: {
-                                        beginAtZero: true
-                                    }
-                                }
-                            }
-                        });
-                    });
-                  </script>
-                
-                </div>
-              </div>
-            </div>
-
-          
 
             <!-- Recent Sales -->
             <!-- <div class="col-12">
@@ -890,12 +932,6 @@
             </div> -->
             <!-- End Recent Sales -->
 
-            <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+       
 
 {% endblock %}
