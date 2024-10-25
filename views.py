@@ -135,7 +135,22 @@ def linechart(request):
     return render(request, 'charts-chartjs.html')
 
 
+# user profile 
+def userprofile(request):
+    print("Rendering user-profile.html")  
+    return render(request, 'users-profile.html')
 
+
+
+#Register page  for login
+def pageregister(request):
+    print("Rendering pages-register.html") 
+    return render(request, 'pages-register.html')
+
+#login Page
+def loginpage(request):
+    print("Rendering pages-login.html") 
+    return render(request, 'pages-login.html')
 
 
 
