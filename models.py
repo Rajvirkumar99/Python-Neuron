@@ -71,7 +71,7 @@ class MasterAll(models.Model):
   
 
     class Meta:
-        db_table = 'master_all1'  # Use the existing table name
+        db_table = 'master_all'  # Use the existing table name
         managed = False  # Since the table is already created, avoid migrations
 
 
