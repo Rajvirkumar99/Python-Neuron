@@ -66,6 +66,10 @@ class MasterAll(models.Model):
     ch_desc = models.CharField(max_length=100, null=True)
     rc = models.CharField(max_length=50, null=True)
 
+   
+
+  
+
     class Meta:
         db_table = 'master_all1'  # Use the existing table name
         managed = False  # Since the table is already created, avoid migrations
@@ -93,3 +97,29 @@ class BudgetData(models.Model):
 
     def __str__(self):
         return f"{self.bud_majhdid} - {self.budmajhdid}"
+
+
+from django.contrib.auth.models import AbstractUser, Group, Permission
+from django.db import models
+
+class UserDetails(AbstractUser):
+    password = models.CharField(max_length=128)  # Password will be hashed
+    last_login = models.DateTimeField(auto_now=True)
+    register_date = models.DateField(auto_now_add=True)
+
+    groups = models.ManyToManyField(
+        Group,
+        related_name="userdetails_groups",  # Avoid conflicts with `auth.User.groups`
+        blank=True
+    )
+    user_permissions = models.ManyToManyField(
+        Permission,
+        related_name="userdetails_permissions",  # Avoid conflicts with `auth.User.user_permissions`
+        blank=True
+    )
+
+    class Meta:
+        db_table = 'user_details'
+
+    def __str__(self):
+        return self.username
