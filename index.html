@@ -729,32 +729,35 @@
 <div class="section">
   <div class=".container">
     <div class="row">
+    
       <!-- Bar Chart 3 - Capital Outlay on Defence Services (Grant-21) -->
       <div class="col-lg-6">
         <div class="card">
           <div class="card-body">
             <h5 class="card-title">Capital Outlay on Defence Services</h5>
-            <canvas id="barChart3" style="max-height: 800px;"></canvas>
-            <!-- Include Chart.js -->
+            <div id="barChart3" style="width: 100%; height: 800px;"></div>
             <script>
               document.addEventListener("DOMContentLoaded", () => {
-                new Chart(document.getElementById('barChart3'), {
+                const labels = {{ minorhd_desc_21|safe }};
+                const dataValues = {{ amt_21|safe }};
+      
+                const data = [{
                   type: 'bar',
-                  data: {
-                    labels: {{ minorhd_desc_21|safe }},
-                    datasets: [{
-                      label: 'Grant-21',
-                      data: {{ amt_21|safe }},
-                      backgroundColor: [
-                        'rgba(255, 99, 132, 0.2)',
-                        'rgba(255, 159, 64, 0.2)',
-                        'rgba(255, 205, 86, 0.2)',
-                        'rgba(75, 192, 192, 0.2)',
-                        'rgba(54, 162, 235, 0.2)',
-                        'rgba(153, 102, 255, 0.2)',
-                        'rgba(201, 203, 207, 0.2)'
-                      ],
-                      borderColor: [
+                  x: dataValues,
+                  y: labels,
+                  orientation: 'h',
+                  marker: {
+                    color: [
+                      'rgba(255, 99, 132, 0.2)',
+                      'rgba(255, 159, 64, 0.2)',
+                      'rgba(255, 205, 86, 0.2)',
+                      'rgba(75, 192, 192, 0.2)',
+                      'rgba(54, 162, 235, 0.2)',
+                      'rgba(153, 102, 255, 0.2)',
+                      'rgba(201, 203, 207, 0.2)'
+                    ],
+                    line: {
+                      color: [
                         'rgb(255, 99, 132)',
                         'rgb(255, 159, 64)',
                         'rgb(255, 205, 86)',
@@ -763,50 +766,78 @@
                         'rgb(153, 102, 255)',
                         'rgb(201, 203, 207)'
                       ],
-                      borderWidth: 1
-                    }]
+                      width: 1
+                    }
                   },
-                  options: {
-                    indexAxis: 'y',
-                    scales: {
-                      y: {
-                        beginAtZero: true
-                      }
+                  text: dataValues.map(val => val.toLocaleString()),
+                  textposition: 'auto',
+                  hovertemplate: '<b>%{y}</b> ( ₹ In crore ): <b>%{x}</b><extra></extra>',
+                  hoverinfo: 'none',
+                  hoverlabel: {
+                    font: {
+                      size: 16,
+                      color: '#000',
+                      family: 'Arial, sans-serif'
                     }
                   }
-                });
+                }];
+      
+                const layout = {
+                  title: 'Grant-21',
+                  xaxis: {
+                    title: 'Amount (₹)',
+                    zeroline: true
+                  },
+                  yaxis: {
+                    title: 'Description',
+                    tickangle: 0,
+                    autorange: 'reversed',
+                    tickfont: {
+                      size: 12,
+                      color: '#000'
+                    },
+                    tickpadding: 10,
+                    automargin: true
+                  },
+                  showlegend: false
+                };
+      
+                Plotly.newPlot('barChart3', data, layout);
               });
             </script>
           </div>
         </div>
       </div>
+      
 
       <!-- Bar Chart 4 - Defence Pensions (Grant-22) -->
       <div class="col-lg-6">
         <div class="card">
           <div class="card-body">
             <h5 class="card-title">Defence Pensions</h5>
-            <canvas id="barChart4" style="max-height: 800px;"></canvas>
-            <!-- Include Chart.js -->
+            <div id="barChart4" style="width: 100%; height: 800px;"></div>
             <script>
               document.addEventListener("DOMContentLoaded", () => {
-                new Chart(document.getElementById('barChart4'), {
+                const labels = {{ minorhd_desc_22|safe }};
+                const dataValues = {{ amt_22|safe }};
+      
+                const data = [{
                   type: 'bar',
-                  data: {
-                    labels: {{ minorhd_desc_22|safe }},
-                    datasets: [{
-                      label: 'Grant-22',
-                      data: {{ amt_22|safe }},
-                      backgroundColor: [
-                        'rgba(255, 99, 132, 0.2)',
-                        'rgba(255, 159, 64, 0.2)',
-                        'rgba(255, 205, 86, 0.2)',
-                        'rgba(75, 192, 192, 0.2)',
-                        'rgba(54, 162, 235, 0.2)',
-                        'rgba(153, 102, 255, 0.2)',
-                        'rgba(201, 203, 207, 0.2)'
-                      ],
-                      borderColor: [
+                  x: dataValues,
+                  y: labels,
+                  orientation: 'h',
+                  marker: {
+                    color: [
+                      'rgba(255, 99, 132, 0.2)',
+                      'rgba(255, 159, 64, 0.2)',
+                      'rgba(255, 205, 86, 0.2)',
+                      'rgba(75, 192, 192, 0.2)',
+                      'rgba(54, 162, 235, 0.2)',
+                      'rgba(153, 102, 255, 0.2)',
+                      'rgba(201, 203, 207, 0.2)'
+                    ],
+                    line: {
+                      color: [
                         'rgb(255, 99, 132)',
                         'rgb(255, 159, 64)',
                         'rgb(255, 205, 86)',
@@ -815,123 +846,240 @@
                         'rgb(153, 102, 255)',
                         'rgb(201, 203, 207)'
                       ],
-                      borderWidth: 1
-                    }]
+                      width: 1
+                    }
                   },
-                  options: {
-                    indexAxis: 'y',
-                    scales: {
-                      y: {
-                        beginAtZero: true
-                      }
+                  text: dataValues.map(val => val.toLocaleString()),
+                  textposition: 'auto',
+                  hovertemplate: '<b>%{y}</b> ( ₹ In crore ): <b>%{x}</b><extra></extra>',
+                  hoverinfo: 'none',
+                  hoverlabel: {
+                    font: {
+                      size: 16,
+                      color: '#000',
+                      family: 'Arial, sans-serif'
                     }
                   }
-                });
+                }];
+      
+                const layout = {
+                  title: 'Grant-22',
+                  xaxis: {
+                    title: 'Amount (₹)',
+                    zeroline: true
+                  },
+                  yaxis: {
+                    title: 'Description',
+                    tickangle: 0,
+                    autorange: 'reversed',
+                    tickfont: {
+                      size: 12,
+                      color: '#000'
+                    },
+                    tickpadding: 10,
+                    automargin: true
+                  },
+                  showlegend: false
+                };
+      
+                Plotly.newPlot('barChart4', data, layout);
               });
             </script>
           </div>
         </div>
       </div>
+      
     </div>
   </div>
 </div>
 
 
-            <!-- Recent Sales -->
-            <!-- <div class="col-12">
-              <div class="card recent-sales overflow-auto">
-                <div class="filter">
-                  <a class="icon" href="#" data-bs-toggle="dropdown"
-                    ><i class="bi bi-three-dots"></i
-                  ></a>
-                  <ul
-                    class="dropdown-menu dropdown-menu-end dropdown-menu-arrow"
-                  >
-                    <li class="dropdown-header text-start">
-                      <h6>Filter</h6>
-                    </li>
-                    <li><a class="dropdown-item" href="#">Today</a></li>
-                    <li><a class="dropdown-item" href="#">This Month</a></li>
-                    <li><a class="dropdown-item" href="#">This Year</a></li>
-                  </ul>
-                </div>
+<!-- Recent Sales -->
+<!-- <div class="col-12">
+  <div class="card recent-sales overflow-auto">
+    <div class="filter">
+      <a class="icon" href="#" data-bs-toggle="dropdown"
+        ><i class="bi bi-three-dots"></i
+      ></a>
+      <ul
+        class="dropdown-menu dropdown-menu-end dropdown-menu-arrow"
+      >
+        <li class="dropdown-header text-start">
+          <h6>Filter</h6>
+        </li>
+        <li><a class="dropdown-item" href="#">Today</a></li>
+        <li><a class="dropdown-item" href="#">This Month</a></li>
+        <li><a class="dropdown-item" href="#">This Year</a></li>
+      </ul>
+    </div>
 
-                <div class="card-body">
-                  <h5 class="card-title">Recent Sales <span>| Today</span></h5>
+    <div class="card-body">
+      <h5 class="card-title">Recent Sales <span>| Today</span></h5>
 
-                  <table class="table table-borderless datatable">
-                    <thead>
-                      <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Customer</th>
-                        <th scope="col">Product</th>
-                        <th scope="col">Price</th>
-                        <th scope="col">Status</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <th scope="row"><a href="#">#2457</a></th>
-                        <td>Brandon Jacob</td>
-                        <td>
-                          <a href="#" class="text-primary"
-                            >At praesentium minu</a
-                          >
-                        </td>
-                        <td>$64</td>
-                        <td><span class="badge bg-success">Approved</span></td>
-                      </tr>
-                      <tr>
-                        <th scope="row"><a href="#">#2147</a></th>
-                        <td>Bridie Kessler</td>
-                        <td>
-                          <a href="#" class="text-primary"
-                            >Blanditiis dolor omnis similique</a
-                          >
-                        </td>
-                        <td>$47</td>
-                        <td><span class="badge bg-warning">Pending</span></td>
-                      </tr>
-                      <tr>
-                        <th scope="row"><a href="#">#2049</a></th>
-                        <td>Ashleigh Langosh</td>
-                        <td>
-                          <a href="#" class="text-primary"
-                            >At recusandae consectetur</a
-                          >
-                        </td>
-                        <td>$147</td>
-                        <td><span class="badge bg-success">Approved</span></td>
-                      </tr>
-                      <tr>
-                        <th scope="row"><a href="#">#2644</a></th>
-                        <td>Angus Grady</td>
-                        <td>
-                          <a href="#" class="text-primary"
-                            >Ut voluptatem id earum et</a
-                          >
-                        </td>
-                        <td>$67</td>
-                        <td><span class="badge bg-danger">Rejected</span></td>
-                      </tr>
-                      <tr>
-                        <th scope="row"><a href="#">#2645</a></th>
-                        <td>Raheem Lehner</td>
-                        <td>
-                          <a href="#" class="text-primary"
-                            >Sunt similique distinctio</a
-                          >
-                        </td>
-                        <td>$165</td>
-                        <td><span class="badge bg-success">Approved</span></td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div> -->
-            <!-- End Recent Sales -->
+      <table class="table table-borderless datatable">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Customer</th>
+            <th scope="col">Product</th>
+            <th scope="col">Price</th>
+            <th scope="col">Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row"><a href="#">#2457</a></th>
+            <td>Brandon Jacob</td>
+            <td>
+              <a href="#" class="text-primary"
+                >At praesentium minu</a
+              >
+            </td>
+            <td>$64</td>
+            <td><span class="badge bg-success">Approved</span></td>
+          </tr>
+          <tr>
+            <th scope="row"><a href="#">#2147</a></th>
+            <td>Bridie Kessler</td>
+            <td>
+              <a href="#" class="text-primary"
+                >Blanditiis dolor omnis similique</a
+              >
+            </td>
+            <td>$47</td>
+            <td><span class="badge bg-warning">Pending</span></td>
+          </tr>
+          <tr>
+            <th scope="row"><a href="#">#2049</a></th>
+            <td>Ashleigh Langosh</td>
+            <td>
+              <a href="#" class="text-primary"
+                >At recusandae consectetur</a
+              >
+            </td>
+            <td>$147</td>
+            <td><span class="badge bg-success">Approved</span></td>
+          </tr>
+          <tr>
+            <th scope="row"><a href="#">#2644</a></th>
+            <td>Angus Grady</td>
+            <td>
+              <a href="#" class="text-primary"
+                >Ut voluptatem id earum et</a
+              >
+            </td>
+            <td>$67</td>
+            <td><span class="badge bg-danger">Rejected</span></td>
+          </tr>
+          <tr>
+            <th scope="row"><a href="#">#2645</a></th>
+            <td>Raheem Lehner</td>
+            <td>
+              <a href="#" class="text-primary"
+                >Sunt similique distinctio</a
+              >
+            </td>
+            <td>$165</td>
+            <td><span class="badge bg-success">Approved</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div> -->
+<!-- End Recent Sales -->
+<section class="section dashboard">
+  <div class="row">
+    <!-- Airforce Chart Card -->
+    <div class="col-xxl-6 col-md-12">
+      <div class="card info-card sales-card">
+        <div class="card-body">
+          <h5 class="card-title">Airforce Budget <span>| ₹ In Crores</span></h5>
+          <div class="d-flex align-items-center">
+            <div
+              class="card-icon rounded-circle d-flex align-items-center justify-content-center"
+              style="background: #e3f2fd"
+            >
+              <i class="bi bi-pie-chart" style="color: #3c3cff"></i>
+            </div>
+            <div class="ps-3">
+              <h6>Total: ₹ 8,416.43</h6>
+            </div>
+          </div>
+          <div id="airforceChart" style="width:100%; height: 400px;"></div>
+        </div>
+      </div>
+    </div>
 
-       
+    <!-- DRDO Chart Card -->
+    <div class="col-xxl-6 col-md-12">
+      <div class="card info-card sales-card">
+        <div class="card-body">
+          <h5 class="card-title">DRDO Budget <span>| ₹ In Crores</span></h5>
+          <div class="d-flex align-items-center">
+            <div
+              class="card-icon rounded-circle d-flex align-items-center justify-content-center"
+              style="background: #fff3e0"
+            >
+              <i class="bi bi-pie-chart" style="color: #ff7f0e"></i>
+            </div>
+            <div class="ps-3">
+              <h6>Total: ₹ 1,869.40 </h6>
+            </div>
+          </div>
+          <div id="drdoChart" style="width:100%; height: 400px;"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Airforce Chart
+  var airforceData = [{
+    values: [5524.74, 2438.24, 101.03, 319.33, 32.09],
+    labels: ["Pay & Allowances (Salary)", "Store", "Work", "Transportation", "Miscellaneous"],
+    type: "pie",
+    hole: 0.4,
+    textinfo: "label+percent",
+    textposition: "outside",
+    automargin: true,
+    marker: { colors: ["#3c3cff", "#ff7f0e", "#2ca02c", "#9467bd", "#d62728"] }
+  }];
+  
+  var airforceLayout = {
+    title: { text: "Airforce 2078 (₹ In Crore)", font: { size: 16 }, x: 0.5 },
+    annotations: [{ font: { size: 20 }, showarrow: false, text: "8,416.43", x: 0.5, y: 0.5 }],
+    showlegend: true,
+    legend: { orientation: "h", x: 0, y: -0.2 },
+    margin: { t: 50, l: 0, r: 0, b: 0 }
+  };
+  
+  Plotly.newPlot('airforceChart', airforceData, airforceLayout);
+
+  // DRDO Chart
+  var drdoData = [{
+    values: [1196.61, 319.33, 101.03, 199.89, 29.56],
+    labels: ["Pay & Allowances (Salary)", "Store", "Work", "Transportation", "Miscellaneous"],
+    type: "pie",
+    hole: 0.4,
+    textinfo: "label+percent",
+    textposition: "outside",
+    automargin: true,
+    marker: { colors: ["#3c3cff", "#ff7f0e", "#2ca02c", "#9467bd", "#d62728"] }
+  }];
+  
+  var drdoLayout = {
+    title: { text: "DRDO 2080 (₹ In Crore)", font: { size: 16 }, x: 0.5 },
+    annotations: [{ font: { size: 20 }, showarrow: false, text: "1,869.40", x: 0.5, y: 0.5 }],
+    showlegend: true,
+    legend: { orientation: "h", x: 0, y: -0.2 },
+    margin: { t: 50, l: 0, r: 0, b: 0 }
+  };
+  
+  Plotly.newPlot('drdoChart', drdoData, drdoLayout);
+</script>
+
 
 {% endblock %}
+
