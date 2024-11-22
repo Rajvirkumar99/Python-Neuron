@@ -1,0 +1,115 @@
+
+{% extends 'base.html' %} 
+{% load static %}
+{% block content %}
+
+
+
+<main>
+  <div class="container-fluid">
+    <section class="section register d-flex flex-column align-items-center justify-content-center">
+      <div class="row justify-content-center align-items-center">
+        <div class="col-lg-8 col-md-10 d-flex flex-column align-items-center justify-content-center">
+          <div class="d-flex mb-4">
+            <a href="index.html" class="logo d-flex align-items-center w-auto">
+              <img src="assets/img/logo.png" alt="">
+            </a>
+          </div>
+
+
+          <div class="card mb-3 w-100">
+            <div class="card-body">
+                <div class="pt-4 pb-2 text-center">
+                    <h5 class="card-title fs-4">Create an Account</h5>
+                    <p class="small">Enter your personal details to create an account</p>
+                </div>
+        
+                <form class="row g-3 needs-validation" novalidate action="{% url 'pageregister' %}" method="post">
+                    {% csrf_token %}
+                    <!-- Row 1 -->
+                    <div class="col-md-6">
+                        <label for="yourName" class="form-label">Your Name</label>
+                        <input type="text" name="name" class="form-control" id="yourName" required>
+                        <div class="invalid-feedback">Please, enter your name!</div>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="yourEmail" class="form-label">Your Email</label>
+                        <input type="email" name="email" class="form-control" id="yourEmail" required>
+                        <div class="invalid-feedback">Please enter a valid email address!</div>
+                    </div>
+        
+                    <!-- Row 2 -->
+                    <div class="col-md-6">
+                        <label for="servicenum" class="form-label">Designation With Service Num</label>
+                        <input type="text" name="designation" class="form-control" id="servicenum" required>
+                        <div class="invalid-feedback">Please enter a Designation with Service Num</div>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="phonenum" class="form-label">Phone Num</label>
+                        <input type="tel" name="phone" class="form-control" id="phonenum" required>
+                        <div class="invalid-feedback">Please enter a Phone number</div>
+                    </div>
+        
+                    <!-- Row 3 -->
+                    <div class="col-md-6">
+                        <label for="officename" class="form-label">Office Name</label>
+                        <input type="text" name="office_name" class="form-control" id="officename" required>
+                        <div class="invalid-feedback">Please enter an Office Name</div>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="Purpose" class="form-label">Purpose</label>
+                        <input type="text" name="purpose" class="form-control" id="Purpose" required>
+                        <div class="invalid-feedback">Please enter your purpose</div>
+                    </div>
+        
+                    <!-- Row 4 -->
+                    <div class="col-md-6">
+                        <label for="yourdate" class="form-label">Register Date</label>
+                        <input type="date" name="date" class="form-control" id="yourdate" required>
+                        <div class="invalid-feedback">Please enter a Register Date</div>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="yourUsername" class="form-label">Username</label>
+                        <div class="input-group has-validation">
+                            <span class="input-group-text">@</span>
+                            <input type="text" name="username" class="form-control" id="yourUsername" required>
+                            <div class="invalid-feedback">Please choose a username.</div>
+                        </div>
+                    </div>
+        
+                    <!-- Row 5 -->
+                    <div class="col-md-6">
+                        <label for="yourPassword" class="form-label">Password</label>
+                        <input type="password" name="password" class="form-control" id="yourPassword" required>
+                        <div class="invalid-feedback">Please enter your password!</div>
+                    </div>
+                    <!-- <div class="col-md-6 d-flex align-items-center">
+                        <div class="form-check">
+                            <input class="form-check-input" name="terms" type="checkbox" value="" id="acceptTerms" required>
+                            <label class="form-check-label" for="acceptTerms">I agree to the <a href="#">terms and conditions</a></label>
+                            <div class="invalid-feedback">You must agree before submitting.</div>
+                        </div>
+                    </div> -->
+        
+                    <!-- Row 6 -->
+                    <div class="col-12">
+                        <button class="btn btn-primary w-100" type="submit">Create Account</button>
+                    </div>
+                    <div class="col-12 text-center">
+                        <p class="small mb-0">Already have an account? <a href="{% url 'loginpage' %}">Log in</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+</main>
+
+
+
+{% endblock %}
