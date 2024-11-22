@@ -4,6 +4,7 @@ from .models import MasterAll, BudgetData  # Import your models
 from django.db import connection
 from decimal import Decimal
 import numpy as np
+import pandas as pd
 
 # Function to calculate budget summary
 def calculate_budget_summary():
@@ -184,7 +185,7 @@ def grantwisepercentage():
 
     # Avoid division by zero and calculate percentages rounded to 2 decimal places
     mod_civil_pct = round((mod_civil / mod_civil_bud) * 100, 2) if mod_civil_bud != 0 else 0.0
-    print("mod_civil_pct:", mod_civil_pct)
+    # print("mod_civil_pct:", mod_civil_pct)
 
     DSR_pct = round((DSR / Defence_service_revenue_bud) * 100, 2) if Defence_service_revenue_bud != 0 else 0.0
     capital_Outlay_pct = round((cap_sum / capital_Outlay_bud) * 100, 2) if capital_Outlay_bud != 0 else 0.0
@@ -206,5 +207,31 @@ def grantwisepercentage():
         "capital_Outlay_pct": capital_Outlay_pct,
         "defence_pensions_pct": defence_pensions_pct
     }
+
+
+# your_app/views.py
+from django.shortcuts import render
+import pandas as pd
+from  misreport.models import MasterAll
+
+def calculate_army_101(request):
+    # Load data from Django model into a DataFrame
+    queryset = MasterAll.objects.all().values()
+    master_all = pd.DataFrame.from_records(queryset)
+    
+    # Filter the rows where 'majhd' is 2076, 'minorhd' is 101, and 'RC1' is 'C'
+    filtered_df = master_all[(master_all['majhd'] == 2076) & 
+                             (master_all['minorhd'] == 101) & 
+                             (master_all['RC1'] == 'C')]
+    
+    # Calculate the sum of 'amt' for the filtered rows, divide by 10,000,000, and round to 2 decimal places
+    army_101 = round(filtered_df['amt'].sum() / 10000000, 2)
+    print ( 'calculate_template.html', {'army_101': army_101})
+    
+    # Render the result in the template
+    return render(request, 'calculate_template.html', {'army_101': army_101})
+
+
+
 
 
